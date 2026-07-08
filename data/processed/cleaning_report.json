@@ -1,0 +1,108 @@
+[
+  {
+    "doc_id": "agents/context",
+    "word_count": 1037,
+    "warnings": []
+  },
+  {
+    "doc_id": "agents/multi-agent",
+    "word_count": 1023,
+    "warnings": []
+  },
+  {
+    "doc_id": "agents/overview",
+    "word_count": 597,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/agentic_concepts",
+    "word_count": 1151,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/durable_execution",
+    "word_count": 1385,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/functional_api",
+    "word_count": 3133,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/human_in_the_loop",
+    "word_count": 370,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/low_level",
+    "word_count": 3848,
+    "warnings": [
+      "unmatched ':::' close marker with no open block, ignoring"
+    ]
+  },
+  {
+    "doc_id": "concepts/memory",
+    "word_count": 2346,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/multi_agent",
+    "word_count": 2845,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/persistence",
+    "word_count": 3334,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/pregel",
+    "word_count": 1133,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/streaming",
+    "word_count": 180,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/subgraphs",
+    "word_count": 366,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/time-travel",
+    "word_count": 126,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/tools",
+    "word_count": 380,
+    "warnings": []
+  },
+  {
+    "doc_id": "concepts/why-langgraph",
+    "word_count": 206,
+    "warnings": []
+  },
+  {
+    "doc_id": "how-tos/graph-api",
+    "word_count": 7624,
+    "warnings": [
+      "unresolved include '../../snippets/chat_model_tabs.md' (target not present in corpus snapshot)"
+    ]
+  },
+  {
+    "doc_id": "tutorials/get-started/1-build-basic-chatbot",
+    "word_count": 1011,
+    "warnings": [
+      "unresolved include '../../../snippets/chat_model_tabs.md' (target not present in corpus snapshot)"
+    ]
+  },
+  {
+    "doc_id": "tutorials/rag/langgraph_agentic_rag",
+    "word_count": 1901,
+    "warnings": []
+  }
+]
