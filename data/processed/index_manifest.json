@@ -1,0 +1,6 @@
+{
+  "corpus_hash": "16606b9362de77114aefcca2f0f356b4a70ae99dea72bd399544cb9cb5bddcae",
+  "embedding_model": "intfloat/multilingual-e5-small",
+  "chunk_count": 183,
+  "built_at": "2026-07-09T14:06:33.035846+00:00"
+}
