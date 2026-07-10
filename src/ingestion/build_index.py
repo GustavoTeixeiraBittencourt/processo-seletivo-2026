@@ -10,6 +10,7 @@ CLEAN_DIR = Path("data/processed/clean")
 INDEX_DIR = Path("data/processed/chroma_index")
 MANIFEST_PATH = Path("data/processed/index_manifest.json")
 EMBEDDING_MODEL = "intfloat/multilingual-e5-small"
+COLLECTION_NAME = "langgraph_docs"
 
 def corpus_hash(clean_dir: Path) -> str:
     h = hashlib.sha256()
@@ -29,7 +30,9 @@ def build_index() -> None:
     model = SentenceTransformer(EMBEDDING_MODEL, device="cpu")
     embeddings = model.encode([f"passage: {c.text}" for c in chunks]).tolist()
     client = chromadb.PersistentClient(path=str(INDEX_DIR))
-    collection = client.get_or_create_collection("langGraph_corpus")
+    collection = client.get_or_create_collection(
+        COLLECTION_NAME, metadata={"hnsw:space": "cosine"}
+    )
     collection.upsert(
         ids = [c.chunk_id for c in chunks],
         documents = [c.text for c in chunks],
