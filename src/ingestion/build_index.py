@@ -5,6 +5,7 @@ from pathlib import Path
 import chromadb
 from sentence_transformers import SentenceTransformer
 from .chunking import chunk_corpus
+from .sources import extract_title, load_source_map
 
 CLEAN_DIR = Path("data/processed/clean")
 INDEX_DIR = Path("data/processed/chroma_index")
@@ -27,6 +28,34 @@ def build_index() -> None:
             print("corpus_hash inalterado... pulando rebuild")
             return
     chunks = chunk_corpus(CLEAN_DIR)
+    source_map = load_source_map()
+
+    title_cache: dict[str, str] = {}
+    def doc_title(doc_id: str) -> str:
+        if doc_id not in title_cache:
+            text = (CLEAN_DIR / f"{doc_id}.md").read_text(encoding="utf-8")
+            title_cache[doc_id] = extract_title(text, fallback=doc_id)
+        return title_cache[doc_id]
+
+    metadatas = []
+    for c in chunks:
+        source_url = source_map.get(c.doc_id)
+        if source_url is None:
+            # falha alto em vez de gravar metadata incompleta em silêncio —
+            # todo doc_id do corpus precisa estar listado em MANIFEST.md
+            raise ValueError(
+                f"doc_id={c.doc_id!r} sem source_url em {load_source_map.__module__}"
+                " (MANIFEST.md desatualizado?)"
+            )
+        metadatas.append({
+            "doc_id": c.doc_id,
+            "chunk_index": c.chunk_index,
+            "corpus_hash": chash,
+            "embedding_model": EMBEDDING_MODEL,
+            "source_url": source_url,
+            "title": doc_title(c.doc_id),
+        })
+
     model = SentenceTransformer(EMBEDDING_MODEL, device="cpu")
     embeddings = model.encode([f"passage: {c.text}" for c in chunks]).tolist()
     client = chromadb.PersistentClient(path=str(INDEX_DIR))
@@ -37,10 +66,7 @@ def build_index() -> None:
         ids = [c.chunk_id for c in chunks],
         documents = [c.text for c in chunks],
         embeddings = embeddings,
-        metadatas=[{"doc_id": c.doc_id,
-                    "chunk_index": c.chunk_index,
-                    "corpus_hash": chash,
-                    "embedding_model": EMBEDDING_MODEL,} for c in chunks]
+        metadatas = metadatas,
     )
 
     MANIFEST_PATH.write_text(json.dumps({
