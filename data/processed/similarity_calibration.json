@@ -1,0 +1,323 @@
+{
+  "generated_at": "2026-07-12T17:06:39.974019+00:00",
+  "min_similarity_threshold": 0.78,
+  "in_corpus": {
+    "summary_top1": {
+      "min": 0.8219,
+      "max": 0.8725,
+      "mean": 0.8543
+    },
+    "questions": [
+      {
+        "question": "Como funciona o checkpointing no LangGraph?",
+        "hits": [
+          {
+            "similarity": 0.8725,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.865,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8619,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8604,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8597,
+            "doc_id": "concepts/persistence"
+          }
+        ]
+      },
+      {
+        "question": "O que é um subgraph e quando usar um?",
+        "hits": [
+          {
+            "similarity": 0.8537,
+            "doc_id": "concepts/subgraphs"
+          },
+          {
+            "similarity": 0.8225,
+            "doc_id": "concepts/subgraphs"
+          },
+          {
+            "similarity": 0.8218,
+            "doc_id": "concepts/low_level"
+          },
+          {
+            "similarity": 0.8199,
+            "doc_id": "concepts/low_level"
+          },
+          {
+            "similarity": 0.8174,
+            "doc_id": "concepts/agentic_concepts"
+          }
+        ]
+      },
+      {
+        "question": "Como o LangGraph decide se um checkpoint deve ser persistido entre execuções?",
+        "hits": [
+          {
+            "similarity": 0.872,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8579,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8504,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.85,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8493,
+            "doc_id": "concepts/persistence"
+          }
+        ]
+      },
+      {
+        "question": "O que é o Pregel no contexto do LangGraph?",
+        "hits": [
+          {
+            "similarity": 0.8545,
+            "doc_id": "concepts/pregel"
+          },
+          {
+            "similarity": 0.853,
+            "doc_id": "concepts/pregel"
+          },
+          {
+            "similarity": 0.8506,
+            "doc_id": "concepts/pregel"
+          },
+          {
+            "similarity": 0.8396,
+            "doc_id": "concepts/pregel"
+          },
+          {
+            "similarity": 0.8325,
+            "doc_id": "concepts/pregel"
+          }
+        ]
+      },
+      {
+        "question": "Como funciona o Command no LangGraph 1.0?",
+        "hits": [
+          {
+            "similarity": 0.8568,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.85,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.8498,
+            "doc_id": "concepts/low_level"
+          },
+          {
+            "similarity": 0.8471,
+            "doc_id": "tutorials/rag/langgraph_agentic_rag"
+          },
+          {
+            "similarity": 0.8445,
+            "doc_id": "tutorials/get-started/1-build-basic-chatbot"
+          }
+        ]
+      },
+      {
+        "question": "O que são checkpointers e para que servem?",
+        "hits": [
+          {
+            "similarity": 0.8219,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8186,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8175,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8126,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8073,
+            "doc_id": "concepts/persistence"
+          }
+        ]
+      },
+      {
+        "question": "Como interromper a execução de um grafo com interrupt()?",
+        "hits": [
+          {
+            "similarity": 0.834,
+            "doc_id": "concepts/functional_api"
+          },
+          {
+            "similarity": 0.8219,
+            "doc_id": "concepts/functional_api"
+          },
+          {
+            "similarity": 0.818,
+            "doc_id": "concepts/durable_execution"
+          },
+          {
+            "similarity": 0.818,
+            "doc_id": "concepts/functional_api"
+          },
+          {
+            "similarity": 0.818,
+            "doc_id": "how-tos/graph-api"
+          }
+        ]
+      },
+      {
+        "question": "O que é a Graph API do LangGraph?",
+        "hits": [
+          {
+            "similarity": 0.8687,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.8608,
+            "doc_id": "tutorials/rag/langgraph_agentic_rag"
+          },
+          {
+            "similarity": 0.8593,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.8588,
+            "doc_id": "concepts/functional_api"
+          },
+          {
+            "similarity": 0.8585,
+            "doc_id": "agents/context"
+          }
+        ]
+      }
+    ]
+  },
+  "fallback": {
+    "summary_top1": {
+      "min": 0.714,
+      "max": 0.8434,
+      "mean": 0.8004
+    },
+    "questions": [
+      {
+        "question": "O LangGraph 1.2 mudou a forma como o Command funciona comparado à 1.0?",
+        "hits": [
+          {
+            "similarity": 0.8434,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.8409,
+            "doc_id": "concepts/low_level"
+          },
+          {
+            "similarity": 0.8397,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.8389,
+            "doc_id": "agents/context"
+          },
+          {
+            "similarity": 0.8365,
+            "doc_id": "concepts/pregel"
+          }
+        ]
+      },
+      {
+        "question": "Quais são as novidades do LangGraph 1.3?",
+        "hits": [
+          {
+            "similarity": 0.8246,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.8239,
+            "doc_id": "concepts/pregel"
+          },
+          {
+            "similarity": 0.8229,
+            "doc_id": "agents/context"
+          },
+          {
+            "similarity": 0.822,
+            "doc_id": "concepts/streaming"
+          },
+          {
+            "similarity": 0.8218,
+            "doc_id": "concepts/pregel"
+          }
+        ]
+      },
+      {
+        "question": "Como o LangGraph se compara ao CrewAI em 2026?",
+        "hits": [
+          {
+            "similarity": 0.8194,
+            "doc_id": "agents/context"
+          },
+          {
+            "similarity": 0.8168,
+            "doc_id": "tutorials/rag/langgraph_agentic_rag"
+          },
+          {
+            "similarity": 0.8163,
+            "doc_id": "concepts/persistence"
+          },
+          {
+            "similarity": 0.816,
+            "doc_id": "concepts/why-langgraph"
+          },
+          {
+            "similarity": 0.8154,
+            "doc_id": "concepts/pregel"
+          }
+        ]
+      },
+      {
+        "question": "Qual é a capital da França?",
+        "hits": [
+          {
+            "similarity": 0.714,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.714,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.71,
+            "doc_id": "how-tos/graph-api"
+          },
+          {
+            "similarity": 0.7082,
+            "doc_id": "concepts/subgraphs"
+          },
+          {
+            "similarity": 0.7071,
+            "doc_id": "how-tos/graph-api"
+          }
+        ]
+      }
+    ]
+  },
+  "decision": "Threshold provisorio MIN_SIMILARITY_DEFAULT=0.78: separa bem perguntas in-corpus (top-1 tipicamente ~0.82-0.87) de perguntas fora de dominio (~0.70-0.71), mas ainda deixa passar fallback 'de fronteira' (mesmo dominio, fora do escopo temporal/versao do corpus, ~0.81-0.84) -- esses casos nao sao distinguiveis por similaridade de cosseno sozinha, porque o texto da pergunta e semanticamente proximo do conteudo indexado; a distincao exige raciocinio sobre o que o corpus cobre (fica a cargo do agente verificador, nao do retriever). Calibracao final fica pendente contra o split de validacao do benchmark (Dias 11-12), nao contra estas amostras informais."
+}
