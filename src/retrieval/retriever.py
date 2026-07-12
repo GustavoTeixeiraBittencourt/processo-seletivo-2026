@@ -5,13 +5,14 @@ from sentence_transformers import SentenceTransformer
 
 from src.ingestion.build_index import INDEX_DIR, EMBEDDING_MODEL, COLLECTION_NAME
 
-# Provisório — calibrado a olho a partir da distribuição observada em
-# src/retrieval/_manual_check.py: separa bem perguntas fora do domínio
-# (~0.70-0.71) das in-corpus (~0.82-0.87), mas ainda deixa passar fallback
-# "de fronteira" (mesmo domínio, fora do escopo do corpus, ~0.81-0.84) —
-# esses dependem do agente verificador, não do threshold.
-# Calibração final fica para os Dias 11-12, contra o split de validação
-# do benchmark (não este número).
+''' Provisório até a fase final do projeto — calibrado a partir da distribuição medida em  data/processed/similarity_calibration.json (gerado por
+ python -m src.retrieval._manual_check`): separa bem perguntas fora do
+ domínio (~0.70-0.71) das in-corpus (~0.82-0.87), mas ainda deixa passar
+ fallback "de fronteira" (mesmo domínio, fora do escopo do corpus,
+ ~0.81-0.84) — essa faixa se sobrepõe ao range in-corpus e não é separável
+ só por similaridade de cosseno; esses casos dependem do agente
+ verificador, não do threshold.
+'''
 MIN_SIMILARITY_DEFAULT = 0.78
 
 
