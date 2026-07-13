@@ -1,0 +1,146 @@
+{
+  "run_at": "2026-07-13T21:06:57.218419+00:00",
+  "split": "validation",
+  "summary": {
+    "total_pairs": 8,
+    "errors": 0,
+    "avg_semantic_similarity": 0.9386,
+    "fallback_classification_accuracy": 0.625,
+    "doc_recall_rate": 1.0,
+    "avg_latency_ms": 45809,
+    "grounded_rate": 0.625
+  },
+  "results": [
+    {
+      "id": "rag_01",
+      "split": "validation",
+      "is_fallback_expected": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "semantic_similarity": 0.9457,
+      "doc_recall": true,
+      "grounded": true,
+      "grounding_warnings": [],
+      "total_latency_ms": 16904,
+      "trace_id": "378dc9d4-522f-4567-872c-2c0e0eea7c17",
+      "trace_path": "traces/trace_20260713T210106_378dc9d4.json",
+      "error": null
+    },
+    {
+      "id": "rag_03",
+      "split": "validation",
+      "is_fallback_expected": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "semantic_similarity": 0.9402,
+      "doc_recall": true,
+      "grounded": true,
+      "grounding_warnings": [],
+      "total_latency_ms": 54949,
+      "trace_id": "2eab0484-7621-4740-94c3-f4aab5387bc1",
+      "trace_path": "traces/trace_20260713T210201_2eab0484.json",
+      "error": null
+    },
+    {
+      "id": "rag_05",
+      "split": "validation",
+      "is_fallback_expected": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "semantic_similarity": 0.9421,
+      "doc_recall": true,
+      "grounded": true,
+      "grounding_warnings": [],
+      "total_latency_ms": 60973,
+      "trace_id": "26ec774a-322a-4cde-b5f1-ae02e396622c",
+      "trace_path": "traces/trace_20260713T210302_26ec774a.json",
+      "error": null
+    },
+    {
+      "id": "rag_07",
+      "split": "validation",
+      "is_fallback_expected": false,
+      "fallback_triggered": false,
+      "fallback_correct": true,
+      "semantic_similarity": 0.9265,
+      "doc_recall": true,
+      "grounded": true,
+      "grounding_warnings": [],
+      "total_latency_ms": 52228,
+      "trace_id": "808b0a25-fbbb-49f1-9c7e-956970595ce2",
+      "trace_path": "traces/trace_20260713T210355_808b0a25.json",
+      "error": null
+    },
+    {
+      "id": "fallback_01",
+      "split": "validation",
+      "is_fallback_expected": true,
+      "fallback_triggered": false,
+      "fallback_correct": false,
+      "semantic_similarity": null,
+      "doc_recall": null,
+      "grounded": false,
+      "grounding_warnings": [
+        "- O objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.",
+        "- Isso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.",
+        "- `Command.PARENT` é usado para navegar para o nó pai."
+      ],
+      "total_latency_ms": 53806,
+      "trace_id": "efd9e5ba-dcf7-4854-b30e-5c74d91ef0ec",
+      "trace_path": "traces/trace_20260713T210449_efd9e5ba.json",
+      "error": null
+    },
+    {
+      "id": "fallback_03",
+      "split": "validation",
+      "is_fallback_expected": true,
+      "fallback_triggered": false,
+      "fallback_correct": false,
+      "semantic_similarity": null,
+      "doc_recall": null,
+      "grounded": false,
+      "grounding_warnings": [
+        "- Não encontrei informação suficiente no contexto disponível para responder com precisão sobre comparações publicadas em 2026.",
+        "- Não encontrei informação suficiente no contexto disponível sobre o overhead de orquestração para sistemas multi-agente.",
+        "- Não encontrei informação suficiente no contexto disponível sobre o CrewAI."
+      ],
+      "total_latency_ms": 49084,
+      "trace_id": "a8f98512-ec58-48ac-b442-b55ef4cb8748",
+      "trace_path": "traces/trace_20260713T210538_a8f98512.json",
+      "error": null
+    },
+    {
+      "id": "fallback_05",
+      "split": "validation",
+      "is_fallback_expected": true,
+      "fallback_triggered": false,
+      "fallback_correct": false,
+      "semantic_similarity": null,
+      "doc_recall": null,
+      "grounded": false,
+      "grounding_warnings": [
+        "- A resposta gerada não está relacionada ao contexto fornecido, que se concentra em documentação e tutoriais do LangGraph.",
+        "- Não há menção a issues em aberto no repositório GitHub no contexto fornecido."
+      ],
+      "total_latency_ms": 51848,
+      "trace_id": "0df4ecca-c01b-4bb5-9a8e-f08379f4ea5e",
+      "trace_path": "traces/trace_20260713T210630_0df4ecca.json",
+      "error": null
+    },
+    {
+      "id": "fallback_10",
+      "split": "validation",
+      "is_fallback_expected": true,
+      "fallback_triggered": true,
+      "fallback_correct": true,
+      "semantic_similarity": null,
+      "doc_recall": null,
+      "grounded": true,
+      "grounding_warnings": [],
+      "total_latency_ms": 26678,
+      "trace_id": "4e6fe930-fc66-4c32-85dd-c4144f6a0451",
+      "trace_path": "traces/trace_20260713T210657_4e6fe930.json",
+      "error": null
+    }
+  ]
+}
