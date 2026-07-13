@@ -1,0 +1,163 @@
+ 
+[
+  {
+    "id": "rag_01",
+    "question": "Depois que um grafo do LangGraph é compilado com um checkpointer, como fica registrado o estado das execuções e o que é preciso informar para acessar esse histórico depois?",
+    "expected_answer": "Um checkpointer salva um checkpoint (snapshot do estado do grafo) a cada super-step da execução. Esses checkpoints ficam associados a um thread, identificado por um thread_id, que deve ser passado dentro de configurable ao invocar o grafo. É esse thread que permite recuperar o estado atual (get_state), o histórico completo (get_state_history) ou reexecutar (replay) a partir de um checkpoint específico depois que a execução termina.",
+    "expected_source_doc_id": "concepts/persistence",
+    "is_fallback": false,
+    "split": "validation"
+  },
+  {
+    "id": "rag_02",
+    "question": "Quando duas partes de um grafo do LangGraph são desenvolvidas como subgraphs, como a comunicação de estado entre o grafo pai e o subgraph muda dependendo de os esquemas de estado serem compartilhados ou não?",
+    "expected_answer": "Se o grafo pai e o subgraph compartilham chaves de estado (schemas com sobreposição), o subgraph pode ser incluído diretamente como um node do grafo pai, e o estado é passado automaticamente. Se os esquemas de estado são diferentes (sem chaves em comum), é preciso escrever uma função de invocação própria dentro de um node do grafo pai que transforma o estado do pai para o formato esperado pelo subgraph antes de chamá-lo, e transforma a saída de volta.",
+    "expected_source_doc_id": "concepts/subgraphs",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "rag_03",
+    "question": "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+    "expected_answer": "O objeto Command resolve isso: um node pode retornar Command(update={...}, goto=\"outro_node\") para combinar atualização de estado e roteamento no mesmo retorno. Command deve ser usado quando é necessário atualizar o estado E rotear para outro node ao mesmo tempo (por exemplo em handoffs de multi-agentes); edges condicionais devem ser usados quando só é preciso rotear, sem alterar o estado. Command também é usado para navegar a um node de um grafo pai (graph=Command.PARENT) e para retomar execução após um interrupt() via Command(resume=...).",
+    "expected_source_doc_id": "concepts/low_level",
+    "is_fallback": false,
+    "split": "validation"
+  },
+  {
+    "id": "rag_04",
+    "question": "O runtime Pregel do LangGraph organiza a execução de um grafo em que fases a cada step, e o que acontece em cada uma delas?",
+    "expected_answer": "Cada step do runtime Pregel (baseado no algoritmo Pregel/Bulk Synchronous Parallel) consiste em três fases: Plan, que determina quais actors (PregelNodes) serão executados no step, com base nos canais que assinam; Execution, que roda todos os actors selecionados em paralelo até todos terminarem, um falhar, ou dar timeout, sem que atualizações de canal fiquem visíveis entre actors durante a fase; e Update, que efetivamente atualiza os canais com os valores escritos pelos actors naquele step. Isso se repete até que nenhum actor seja selecionado ou o número máximo de steps seja atingido.",
+    "expected_source_doc_id": "concepts/pregel",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "rag_05",
+    "question": "Por que os checkpointers do LangGraph são um pré-requisito para workflows de human-in-the-loop, e qual das duas formas de pausar um grafo permite decidir a pausa a partir do estado atual dentro de um node?",
+    "expected_answer": "Interrupts dependem da camada de persistência (checkpointers) porque o LangGraph salva o checkpoint do estado do grafo após cada step, o que permite pausar a execução indefinidamente e retomá-la depois, sem perder contexto, mesmo de forma assíncrona. Das duas formas de pausar um grafo, os interrupts dinâmicos (usando a função interrupt() dentro de um node) são os que decidem pausar com base no estado atual do grafo naquele ponto da execução.",
+    "expected_source_doc_id": "concepts/human_in_the_loop",
+    "is_fallback": false,
+    "split": "validation"
+  },
+  {
+    "id": "rag_06",
+    "question": "Quais categorias de dados o sistema de streaming do LangGraph permite transmitir em tempo real durante a execução de um grafo?",
+    "expected_answer": "O sistema de streaming do LangGraph permite transmitir três categorias principais de dados: progresso do workflow (atualizações de estado após cada node ser executado), tokens do LLM (o texto do modelo de linguagem sendo gerado token a token) e atualizações customizadas (sinais definidos pelo desenvolvedor, como \"10 de 100 registros processados\"), permitindo capturar streams de tokens de dentro de nodes, subgraphs ou tools.",
+    "expected_source_doc_id": "concepts/streaming",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "rag_07",
+    "question": "Na Functional API do LangGraph, qual é a diferença de papel entre os decorators @entrypoint e @task?",
+    "expected_answer": "@entrypoint marca uma função como o ponto de partida de um workflow, encapsulando a lógica e gerenciando o fluxo de execução, incluindo o tratamento de tarefas de longa duração e interrupts. @task representa uma unidade discreta de trabalho (como uma chamada de API ou uma etapa de processamento de dados) que pode ser executada de forma assíncrona dentro de um entrypoint, retornando um objeto do tipo future que pode ser aguardado ou resolvido de forma síncrona. Juntos, permitem adicionar persistência, memória, human-in-the-loop e streaming a código existente sem reestruturá-lo como um grafo/DAG explícito.",
+    "expected_source_doc_id": "concepts/functional_api",
+    "is_fallback": false,
+    "split": "validation"
+  },
+  {
+    "id": "rag_08",
+    "question": "O que é execução durável (durable execution) no LangGraph, e quais dois requisitos o workflow precisa satisfazer para aproveitar bem esse recurso?",
+    "expected_answer": "Execução durável é a técnica pela qual um processo ou workflow salva seu progresso em pontos-chave, permitindo pausar e depois retomar exatamente de onde parou — útil tanto para human-in-the-loop quanto para tarefas longas que podem sofrer interrupções ou erros (como timeout de chamada a um LLM), mesmo que a retomada aconteça bem depois (ex.: uma semana). A camada de persistência (checkpointer) do LangGraph garante isso. Para aproveitar bem o recurso, o workflow precisa ser determinístico e idempotente, e efeitos colaterais ou operações não determinísticas devem ser encapsulados dentro de tasks.",
+    "expected_source_doc_id": "concepts/durable_execution",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "rag_09",
+    "question": "Ao usar a funcionalidade de time travel do LangGraph para retomar a execução a partir de um checkpoint anterior, o que acontece com o histórico de execução: ele é sobrescrito ou outra coisa acontece?",
+    "expected_answer": "Retomar a execução a partir de um checkpoint anterior — seja reproduzindo o mesmo estado ou modificando-o para explorar alternativas — não sobrescreve o histórico existente; em todos os casos, essa retomada produz um novo fork (uma nova ramificação) no histórico de execução, o que permite entender o raciocínio do agente, depurar erros e explorar caminhos alternativos.",
+    "expected_source_doc_id": "concepts/time-travel",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "rag_10",
+    "question": "Qual é a diferença entre memória de curto prazo e memória de longo prazo no LangGraph, em termos de onde cada uma fica escopada e como é persistida?",
+    "expected_answer": "Memória de curto prazo é escopada a um thread (uma conversa) e acompanha o histórico de mensagens dentro dessa sessão; ela faz parte do state do agente e é persistida por um checkpointer, sendo lida no início de cada step. Memória de longo prazo armazena dados específicos do usuário ou da aplicação através de sessões, compartilhados entre threads diferentes, organizados em namespaces customizados (não limitados a um thread_id), e é guardada usando o Store do LangGraph, podendo ser recuperada a qualquer momento em qualquer thread.",
+    "expected_source_doc_id": "concepts/memory",
+    "is_fallback": false,
+    "split": "test"
+  },
+  {
+    "id": "fallback_01",
+    "question": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "validation"
+  },
+  {
+    "id": "fallback_02",
+    "question": "Quando a documentação do LangGraph migrou de python.langchain.com/langgraph para docs.langchain.com, quais seções de conceitos foram reorganizadas ou renomeadas nessa mudança?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_03",
+    "question": "Em comparações publicadas em 2026, como o LangGraph se sai frente ao CrewAI em termos de overhead de orquestração para sistemas multi-agente?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "validation"
+  },
+  {
+    "id": "fallback_04",
+    "question": "Qual é a versão mais recente do pacote langgraph publicada no PyPI neste momento?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_05",
+    "question": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "validation"
+  },
+  {
+    "id": "fallback_06",
+    "question": "Depois do lançamento da versão 1.0, o LangGraph passou a oferecer integração nativa com algum novo provedor de LLM que não existia antes?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_07",
+    "question": "Existe alguma vulnerabilidade de segurança (CVE) reportada publicamente para o LangGraph em 2026?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_08",
+    "question": "Qual é a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_09",
+    "question": "Segundo discussões recentes da comunidade, a curva de aprendizado do LangGraph é considerada mais alta ou mais baixa do que a dos Workflows do LlamaIndex?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "test"
+  },
+  {
+    "id": "fallback_10",
+    "question": "Qual é a capital da França?",
+    "expected_answer": null,
+    "expected_source_doc_id": null,
+    "is_fallback": true,
+    "split": "validation"
+  }
+]
