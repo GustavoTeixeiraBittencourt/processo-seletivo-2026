@@ -1,0 +1,59 @@
+{
+  "trace_id": "23bab52b-3e9f-4068-91aa-ad5f0c000a81",
+  "query_original": "Como criar um StateGraph?",
+  "timestamp": "2026-07-13T14:48:45.458922+00:00",
+  "total_latency_ms": 1631,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "response_final": "Para criar um StateGraph, você deve...",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/low_level"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Como criar um StateGraph?",
+      "output": [
+        "Como implementar StateGraph LangGraph?"
+      ],
+      "latency_ms": 380
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Como criar um StateGraph?",
+        "Como implementar StateGraph LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/low_level_3",
+          "similarity": 0.871,
+          "title": "Low Level Concepts",
+          "source_url": "https://..."
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 190
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 1
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 1,
+      "output_length_chars": 38,
+      "latency_ms": 750
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 310
+    }
+  ]
+}

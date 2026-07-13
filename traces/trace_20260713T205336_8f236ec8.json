@@ -1,0 +1,97 @@
+{
+  "trace_id": "8f236ec8-557b-43af-beb3-efc8dadd2f85",
+  "query_original": "O que é um checkpointer no LangGraph e para que serve?",
+  "timestamp": "2026-07-13T20:53:18.386670+00:00",
+  "total_latency_ms": 18283,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "response_final": "Um checkpointer no LangGraph é um objeto que é responsável por salvar e recuperar o estado de um gráfico em diferentes pontos do tempo. Ele é implementado através de checkpointers e é usado para fornecer funcionalidades como human-in-the-loop, memória, viagem no tempo e tolerância a falhas.\n\nO checkpointer salva o estado do gráfico em um \"checkpoint\" em cada super-estágio, que é um ponto específico do tempo durante a execução do gráfico. Isso permite que o gráfico seja recuperado em um estado específico no futuro, permitindo que os usuários revisem e/ou debuguem passos específicos do gráfico.\n\nO checkpointer também permite que os usuários forquem o estado do gráfico em pontos específicos, o que é útil para explorar trajetórias alternativas.\n\nAlém disso, o checkpointer fornece tolerância a falhas e recuperação de erros, permitindo que o gráfico seja reiniciado a partir do último passo bem-sucedido em caso de falha de um nó.\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/persistence"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "O que é um checkpointer no LangGraph e para que serve?",
+      "output": [
+        "Qual é a função de um checkpoint no LangGraph e como ele é utilizado para armazenar o estado de um agente de IA?",
+        "O que é um checkpoint de estado no LangGraph e como ele é utilizado para salvar e restaurar o progresso de um agente de IA durante a execução?"
+      ],
+      "latency_ms": 696
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "O que é um checkpointer no LangGraph e para que serve?",
+        "Qual é a função de um checkpoint no LangGraph e como ele é utilizado para armazenar o estado de um agente de IA?",
+        "O que é um checkpoint de estado no LangGraph e como ele é utilizado para salvar e restaurar o progresso de um agente de IA durante a execução?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/persistence_0",
+          "similarity": 0.8731,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8726,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_1",
+          "similarity": 0.8687,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_15",
+          "similarity": 0.8624,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_14",
+          "similarity": 0.8598,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_16",
+          "similarity": 0.8497,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8402,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 14420
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 7,
+      "output_length_chars": 1076,
+      "latency_ms": 2246
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 921
+    }
+  ]
+}

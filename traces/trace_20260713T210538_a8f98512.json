@@ -1,0 +1,110 @@
+{
+  "trace_id": "a8f98512-ec58-48ac-b442-b55ef4cb8748",
+  "query_original": "Em comparações publicadas em 2026, como o LangGraph se sai frente ao CrewAI em termos de overhead de orquestração para sistemas multi-agente?",
+  "timestamp": "2026-07-13T21:04:49.573057+00:00",
+  "total_latency_ms": 49084,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre comparações publicadas em 2026 entre LangGraph e CrewAI em termos de overhead de orquestração para sistemas multi-agente.",
+  "grounded": false,
+  "grounding_warnings": [
+    "- Não encontrei informação suficiente no contexto disponível para responder com precisão sobre comparações publicadas em 2026.",
+    "- Não encontrei informação suficiente no contexto disponível sobre o overhead de orquestração para sistemas multi-agente.",
+    "- Não encontrei informação suficiente no contexto disponível sobre o CrewAI."
+  ],
+  "sources": [
+    "concepts/agentic_concepts",
+    "agents/overview",
+    "concepts/multi_agent",
+    "how-tos/graph-api",
+    "agents/context",
+    "concepts/pregel"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Em comparações publicadas em 2026, como o LangGraph se sai frente ao CrewAI em termos de overhead de orquestração para sistemas multi-agente?",
+      "output": [
+        "Em comparações recentes, como o LangGraph se compara ao CrewAI em termos de eficiência de orquestração para sistemas de agentes distribuídos em 2026?",
+        "Quais são as principais diferenças em overhead de orquestração entre LangGraph e CrewAI em sistemas multi-agente, conforme demonstrado em estudos publicados em 2026?"
+      ],
+      "latency_ms": 2533
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Em comparações publicadas em 2026, como o LangGraph se sai frente ao CrewAI em termos de overhead de orquestração para sistemas multi-agente?",
+        "Em comparações recentes, como o LangGraph se compara ao CrewAI em termos de eficiência de orquestração para sistemas de agentes distribuídos em 2026?",
+        "Quais são as principais diferenças em overhead de orquestração entre LangGraph e CrewAI em sistemas multi-agente, conforme demonstrado em estudos publicados em 2026?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8307,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/agentic_concepts_4",
+          "similarity": 0.8302,
+          "title": "Agent architectures",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/agentic_concepts.md"
+        },
+        {
+          "chunk_id": "agents/overview_0",
+          "similarity": 0.8275,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_1",
+          "similarity": 0.8264,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.826,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_14",
+          "similarity": 0.8231,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/multi_agent_10",
+          "similarity": 0.8215,
+          "title": "Multi-agent systems",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/multi_agent.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 189
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 7,
+      "output_length_chars": 214,
+      "latency_ms": 35533
+    },
+    {
+      "agent": "verifier",
+      "grounded": false,
+      "warnings": [
+        "- Não encontrei informação suficiente no contexto disponível para responder com precisão sobre comparações publicadas em 2026.",
+        "- Não encontrei informação suficiente no contexto disponível sobre o overhead de orquestração para sistemas multi-agente.",
+        "- Não encontrei informação suficiente no contexto disponível sobre o CrewAI."
+      ],
+      "latency_ms": 10829
+    }
+  ]
+}

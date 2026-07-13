@@ -1,0 +1,108 @@
+{
+  "trace_id": "efd9e5ba-dcf7-4854-b30e-5c74d91ef0ec",
+  "query_original": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+  "timestamp": "2026-07-13T21:03:55.755952+00:00",
+  "total_latency_ms": 53806,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "response_final": "Sim, o objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.\n\nIsso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.\n\n```python\nreturn Command(\n    update={\"foo\": value},\n    goto=goto,\n    graph=Command.PARENT,\n)\n```\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md",
+  "grounded": false,
+  "grounding_warnings": [
+    "- O objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.",
+    "- Isso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.",
+    "- `Command.PARENT` é usado para navegar para o nó pai."
+  ],
+  "sources": [
+    "concepts/low_level",
+    "how-tos/graph-api",
+    "concepts/pregel",
+    "agents/context"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+      "output": [
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "latency_ms": 1631
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "how-tos/graph-api_40",
+          "similarity": 0.8325,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_13",
+          "similarity": 0.8323,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "agents/context_1",
+          "similarity": 0.8307,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8307,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8294,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8291,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_2",
+          "similarity": 0.8148,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 156
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 7,
+      "output_length_chars": 519,
+      "latency_ms": 35201
+    },
+    {
+      "agent": "verifier",
+      "grounded": false,
+      "warnings": [
+        "- O objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.",
+        "- Isso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.",
+        "- `Command.PARENT` é usado para navegar para o nó pai."
+      ],
+      "latency_ms": 16818
+    }
+  ]
+}

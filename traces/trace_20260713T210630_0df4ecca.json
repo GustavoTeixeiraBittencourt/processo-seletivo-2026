@@ -1,0 +1,109 @@
+{
+  "trace_id": "0df4ecca-c01b-4bb5-9a8e-f08379f4ea5e",
+  "query_original": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+  "timestamp": "2026-07-13T21:05:38.667299+00:00",
+  "total_latency_ms": 51848,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão. O contexto fornece informações sobre o LangGraph, incluindo documentação, tutoriais e conceitos, mas não menciona nada sobre issues em aberto no repositório GitHub.",
+  "grounded": false,
+  "grounding_warnings": [
+    "- A resposta gerada não está relacionada ao contexto fornecido, que se concentra em documentação e tutoriais do LangGraph.",
+    "- Não há menção a issues em aberto no repositório GitHub no contexto fornecido."
+  ],
+  "sources": [
+    "agents/overview",
+    "how-tos/graph-api",
+    "agents/context",
+    "concepts/persistence",
+    "concepts/low_level",
+    "tutorials/rag/langgraph_agentic_rag",
+    "concepts/why-langgraph"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+      "output": [
+        "Quais são os problemas pendentes com maior número de comentários e votos no repositório LangGraph no GitHub atualmente?",
+        "Quais são as issues mais discutidas e votadas no repositório LangGraph no GitHub, atualmente?"
+      ],
+      "latency_ms": 2614
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+        "Quais são os problemas pendentes com maior número de comentários e votos no repositório LangGraph no GitHub atualmente?",
+        "Quais são as issues mais discutidas e votadas no repositório LangGraph no GitHub, atualmente?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8431,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_2",
+          "similarity": 0.8428,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "concepts/why-langgraph_0",
+          "similarity": 0.8419,
+          "title": "Overview",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/why-langgraph.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.8402,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_15",
+          "similarity": 0.8391,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_27",
+          "similarity": 0.8363,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8334,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 182
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 7,
+      "output_length_chars": 252,
+      "latency_ms": 34062
+    },
+    {
+      "agent": "verifier",
+      "grounded": false,
+      "warnings": [
+        "- A resposta gerada não está relacionada ao contexto fornecido, que se concentra em documentação e tutoriais do LangGraph.",
+        "- Não há menção a issues em aberto no repositório GitHub no contexto fornecido."
+      ],
+      "latency_ms": 14990
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "trace_id": "4e6fe930-fc66-4c32-85dd-c4144f6a0451",
+  "query_original": "Qual é a capital da França?",
+  "timestamp": "2026-07-13T21:06:30.526332+00:00",
+  "total_latency_ms": 26678,
+  "fallback_used": true,
+  "fallback_reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+  "response_final": "A capital da França é Paris.\n\nFonte: https://brasilescola.uol.com.br/geografia/franca.htm",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://pt.wikipedia.org/wiki/Paris",
+    "https://brasilescola.uol.com.br/geografia/franca.htm",
+    "https://www.facebook.com/ParisSempreParis/posts/curiosidades-sobre-a-fran%C3%A7a-a-fran%C3%A7a-%C3%A9-um-pa%C3%ADs-localizado-no-continente-europeu-/1058892316270579",
+    "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+    "https://artsandculture.google.com/entity/m05qtj?hl=pt"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a capital da França?",
+      "output": [
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "latency_ms": 2543
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a capital da França?",
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "chunks_retrieved": [],
+      "fallback_triggered": true,
+      "latency_ms": 142
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "query": "Qual é a capital da França?",
+      "results": [
+        {
+          "title": "França: dados gerais, mapa, bandeira, história - Brasil Escola",
+          "url": "https://brasilescola.uol.com.br/geografia/franca.htm",
+          "score": 0.8737
+        },
+        {
+          "title": "Paris, a capital da França, é uma das cidades mais ...",
+          "url": "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+          "score": 0.8583
+        },
+        {
+          "title": "Paris — Google Arts & Culture",
+          "url": "https://artsandculture.google.com/entity/m05qtj?hl=pt",
+          "score": 0.8562
+        },
+        {
+          "title": "CURIOSIDADES SOBRE A FRANÇA 🇫🇷 A... - Paris Sempre Paris",
+          "url": "https://www.facebook.com/ParisSempreParis/posts/curiosidades-sobre-a-fran%C3%A7a-a-fran%C3%A7a-%C3%A9-um-pa%C3%ADs-localizado-no-continente-europeu-/1058892316270579",
+          "score": 0.8303
+        },
+        {
+          "title": "Paris – Wikipédia, a enciclopédia livre",
+          "url": "https://pt.wikipedia.org/wiki/Paris",
+          "score": 0.8124
+        }
+      ],
+      "latency_ms": 2737
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 89,
+      "latency_ms": 10743
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 10513
+    }
+  ]
+}
