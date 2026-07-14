@@ -14,9 +14,14 @@ class PipelineState(TypedDict):
     # Após recuperação (hits acima do threshold)
     retrieved_chunks: list[dict]
 
-    # Decisão de fallback
+    # Decisão de fallback (gate inicial: dispara se retrieval não achou nada)
     fallback_triggered: bool
     fallback_reason: str | None
+
+    # True se foi o verificador (não o fallback_decision inicial) que acionou
+    # a busca web — caso "de fronteira": RAG achou chunks acima do threshold,
+    # mas a resposta gerada não era fundamentada neles
+    verifier_triggered_fallback: bool
 
     # Resultados da busca web (só populado se fallback)
     web_results: list[dict]
@@ -30,6 +35,13 @@ class PipelineState(TypedDict):
     # Saída do verificador
     grounded: bool
     grounding_warnings: list[str]
+
+    # Snapshot do primeiro passe (RAG) do gerador/verificador, preservado
+    # para o trace mesmo quando o loop corretivo sobrescreve response_draft/
+    # grounded com o resultado do segundo passe (via web)
+    initial_response_draft: str
+    initial_grounded: bool | None
+    initial_grounding_warnings: list[str]
 
     # Resposta final ao usuário
     response_final: str

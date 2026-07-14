@@ -11,8 +11,9 @@ Este documento é a referência canônica — implementação em `src/observabil
 | `query_original` | string | Pergunta exatamente como digitada pelo usuário |
 | `timestamp` | string (ISO 8601) | Momento do início da execução (UTC) |
 | `total_latency_ms` | int | Soma das latências de todos os agentes (ms) |
-| `fallback_used` | bool | `true` se a busca web foi acionada |
+| `fallback_used` | bool | `true` se a busca web foi acionada (inicial ou corretiva) |
 | `fallback_reason` | string \| null | Motivo do fallback (nulo se RAG foi suficiente) |
+| `verifier_triggered_fallback` | bool | `true` se foi o *verifier* (não o `fallback_decision` inicial) quem acionou a busca web — caso "de fronteira": retrieval achou chunks acima do threshold, mas a resposta gerada a partir deles não era fundamentada. Ver `steps[].agent == "verifier".initial_verdict` para o veredito do primeiro passe (via RAG) nesse caso |
 | `response_final` | string | Resposta entregue ao usuário |
 | `grounded` | bool | Veredicto do agente verificador |
 | `grounding_warnings` | list[string] | Afirmações sem suporte no contexto (vazio se grounded) |
@@ -58,6 +59,7 @@ Este documento é a referência canônica — implementação em `src/observabil
 ```json
 {
   "agent": "web_search",
+  "corrective": false,
   "query": "pergunta original",
   "results": [
     {"title": "...", "url": "https://...", "score": 0.91}
@@ -65,6 +67,7 @@ Este documento é a referência canônica — implementação em `src/observabil
   "latency_ms": 1200
 }
 ```
+`corrective: true` indica que este foi o fallback acionado pelo `verifier` (segundo passe), não pelo `fallback_decision` inicial.
 
 ### `generator`
 ```json
@@ -75,6 +78,7 @@ Este documento é a referência canônica — implementação em `src/observabil
   "latency_ms": 800
 }
 ```
+Se houve fallback corretivo, os campos refletem o **segundo** passe (via web) — o `context_used` final é sempre o que sustentou `response_final`.
 
 ### `verifier`
 ```json
@@ -82,6 +86,21 @@ Este documento é a referência canônica — implementação em `src/observabil
   "agent": "verifier",
   "grounded": true,
   "warnings": [],
-  "latency_ms": 350
+  "latency_ms": 350,
+  "initial_verdict": null
+}
+```
+`initial_verdict` só é preenchido quando o fallback corretivo rodou — contém `response_draft`/`grounded`/`warnings` do primeiro passe (via RAG), preservado porque `grounded`/`response_final` no nível raiz do trace são sobrescritos pelo segundo passe:
+```json
+{
+  "agent": "verifier",
+  "grounded": true,
+  "warnings": [],
+  "latency_ms": 340,
+  "initial_verdict": {
+    "response_draft": "Sim, o Command ganhou um parâmetro `graph` na 1.2...",
+    "grounded": false,
+    "warnings": ["- ... não fundamentado no contexto ..."]
+  }
 }
 ```

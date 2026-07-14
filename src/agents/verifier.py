@@ -106,12 +106,21 @@ def run(state: PipelineState) -> dict:
     response = call_llm(messages)
     grounded, warnings = _parse_verdict(response.content)
 
-    # A resposta final é sempre o draft — o verificador apenas sinaliza
-    # problemas, não reescreve. Reescrita seria um loop de reflexão (avançado).
+    # A resposta final é sempre o draft mais recente — se grounded=False e o
+    # grafo ainda não tentou fallback (ver _route_after_verifier em
+    # orchestration/graph.py), o pipeline volta por web_search e roda
+    # generator/verifier de novo; response_final é sobrescrita nesse segundo
+    # passe. initial_* preserva o veredito do primeiro passe (só é gravado
+    # uma vez) para o trace não perder essa informação.
     latency_ms = int((time.monotonic() - start) * 1000)
-    return {
+    update = {
         "grounded": grounded,
         "grounding_warnings": warnings,
         "response_final": draft,
         "verification_latency_ms": latency_ms,
     }
+    if not state.get("initial_response_draft"):
+        update["initial_response_draft"] = draft
+        update["initial_grounded"] = grounded
+        update["initial_grounding_warnings"] = warnings
+    return update

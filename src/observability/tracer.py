@@ -75,10 +75,13 @@ def build_trace(state: dict, started_at: datetime) -> dict:
         },
     ]
 
+    verifier_triggered_fallback = state.get("verifier_triggered_fallback", False)
+
     if state.get("fallback_triggered"):
         steps.append(
             {
                 "agent": "web_search",
+                "corrective": verifier_triggered_fallback,
                 "query": state.get("query_original", ""),
                 "results": [
                     {
@@ -104,6 +107,18 @@ def build_trace(state: dict, started_at: datetime) -> dict:
             "grounded": state.get("grounded", True),
             "warnings": state.get("grounding_warnings", []),
             "latency_ms": state.get("verification_latency_ms", 0),
+            # Só presente quando o fallback corretivo rodou: veredito do
+            # verifier sobre a resposta original (via RAG), antes de o
+            # segundo passe (via web) sobrescrever grounded/response_final
+            "initial_verdict": (
+                {
+                    "response_draft": state.get("initial_response_draft", ""),
+                    "grounded": state.get("initial_grounded"),
+                    "warnings": state.get("initial_grounding_warnings", []),
+                }
+                if verifier_triggered_fallback
+                else None
+            ),
         },
     ]
 
@@ -114,6 +129,7 @@ def build_trace(state: dict, started_at: datetime) -> dict:
         "total_latency_ms": total_latency_ms,
         "fallback_used": state.get("fallback_triggered", False),
         "fallback_reason": state.get("fallback_reason"),
+        "verifier_triggered_fallback": verifier_triggered_fallback,
         "response_final": state.get("response_final", ""),
         "grounded": state.get("grounded", True),
         "grounding_warnings": state.get("grounding_warnings", []),

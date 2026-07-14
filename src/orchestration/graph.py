@@ -13,7 +13,31 @@ Fluxo:
                            ↓                            ↓
                        generator  ←──────────  web_search
                            ↓
-                       verifier → END (trace salvo)
+                       verifier
+                           ↓
+                  [condicional: fundamentado?]
+                  /                          \
+              [sim/já tentou web]      [não E ainda não tentou web]
+                  ↓                            ↓
+                 END                      web_search (retry)
+                                                ↓
+                                           generator (2º passe)
+                                                ↓
+                                           verifier (2º passe) → END
+
+O loop de fallback corretivo existe porque o threshold de similaridade
+sozinho não separa perguntas "de fronteira" (mesmo domínio, fora do escopo
+do corpus — ver data/processed/similarity_calibration.json) de perguntas
+genuinamente respondíveis pelo corpus: ambas retornam chunks acima do
+threshold. fallback_decision (gate inicial) só pega o caso "zero chunks";
+o caso de fronteira só é detectável depois, pelo verifier, checando se a
+resposta gerada realmente se sustenta no que foi recuperado. Sem esse loop,
+uma resposta que o próprio verifier marca como não fundamentada ainda assim
+seria entregue ao usuário como resposta final — o verifier virava só um
+log, não uma ação corretiva. A checagem `not state["fallback_triggered"]`
+no roteador garante no máximo uma tentativa de correção por execução (sem
+isso, um segundo veredito "não fundamentado" via web faria o grafo ciclar
+indefinidamente).
 """
 
 from __future__ import annotations
@@ -41,12 +65,16 @@ _INITIAL_STATE: PipelineState = {
     "retrieved_chunks": [],
     "fallback_triggered": False,
     "fallback_reason": None,
+    "verifier_triggered_fallback": False,
     "web_results": [],
     "context_used": [],
     "response_draft": "",
     "grounded": True,
     "grounding_warnings": [],
     "response_final": "",
+    "initial_response_draft": "",
+    "initial_grounded": None,
+    "initial_grounding_warnings": [],
     "reformulation_latency_ms": 0,
     "retrieval_latency_ms": 0,
     "fallback_decision_latency_ms": 0,
@@ -59,6 +87,14 @@ _INITIAL_STATE: PipelineState = {
 def _route_after_fallback_decision(state: PipelineState) -> str:
     """Aresta condicional: decide se vai para web_search ou direto para generator."""
     return "web_search" if state["fallback_triggered"] else "generator"
+
+
+def _route_after_verifier(state: PipelineState) -> str:
+    """Aresta condicional: fallback corretivo se a resposta não é fundamentada
+    e a busca web ainda não foi tentada nesta execução (ver docstring do módulo)."""
+    if not state["grounded"] and not state["fallback_triggered"]:
+        return "web_search"
+    return "end"
 
 
 def _build() -> object:
@@ -81,7 +117,11 @@ def _build() -> object:
     )
     graph.add_edge("web_search", "generator")
     graph.add_edge("generator", "verifier")
-    graph.add_edge("verifier", END)
+    graph.add_conditional_edges(
+        "verifier",
+        _route_after_verifier,
+        {"web_search": "web_search", "end": END},
+    )
 
     return graph.compile()
 
