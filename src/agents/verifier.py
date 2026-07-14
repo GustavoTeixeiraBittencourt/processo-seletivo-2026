@@ -11,6 +11,21 @@ mas fora do corpus) que passaram pelo threshold do retriever. O verificador
 Formato de saída do LLM: texto estruturado com linha "VEREDICTO: FUNDAMENTADO"
 ou "VEREDICTO: NÃO FUNDAMENTADO" seguida de "AVISOS: ..." — mais robusto que
 JSON parsing para respostas curtas, sem dependência de um esquema Pydantic.
+
+Caso especial — recusa explícita: quando o generator não acha suporte
+suficiente, ele é instruído (generator.py) a responder com uma frase fixa
+("Não encontrei informação suficiente..."). Resolvido por checagem
+determinística (_is_explicit_refusal), não perguntando ao LLM: mais rápido,
+mais barato, e sem o risco (observado em produção, ver
+docs/decisoes_tecnicas.md) de o verificador penalizar a própria honestidade
+que ele foi desenhado para reconhecer. Mas a recusa só é *trivialmente*
+fundamentada se a busca web já foi tentada (fallback_triggered=True) — se
+for a primeira recusa, ainda só com contexto do RAG, ela precisa continuar
+contando como "não fundamentado" para o roteador (_route_after_verifier em
+orchestration/graph.py) mandar o grafo pelo loop corretivo antes de desistir.
+Sem essa distinção, uma recusa honesta no primeiro passe encerraria o grafo
+sem nunca tentar a web — o mesmo problema que o loop corretivo foi criado
+para resolver, só que por um caminho diferente.
 """
 
 from __future__ import annotations
@@ -21,6 +36,10 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from src.agents._llm import call_llm
 from src.agents.state import PipelineState
+
+# Precisa bater com a frase exata instruída em generator.py — ver docstring
+# do módulo, seção "Caso especial"
+_REFUSAL_MARKER = "não encontrei informação suficiente"
 
 _SYSTEM_PROMPT = """\
 Você é um verificador de qualidade para sistemas RAG. Sua tarefa é checar se \
@@ -39,6 +58,10 @@ ou
 VEREDICTO: NÃO FUNDAMENTADO
 AVISOS: <lista de afirmações sem suporte no contexto, uma por linha>\
 """
+
+
+def _is_explicit_refusal(draft: str) -> bool:
+    return _REFUSAL_MARKER in draft.lower()
 
 
 def _parse_verdict(raw: str) -> tuple[bool, list[str]]:
@@ -62,12 +85,20 @@ def _parse_verdict(raw: str) -> tuple[bool, list[str]]:
     return grounded, warnings
 
 
-def _truncate_context(context: list[dict], max_chars: int = 6000) -> str:
-    """Trunca o contexto para evitar exceder a janela de contexto do LLM."""
+def _truncate_context(context: list[dict], max_chars: int = 6000, max_chunk_chars: int = 1500) -> str:
+    """Trunca o contexto para evitar exceder a janela de tokens da Groq.
+
+    Corta em dois níveis — por trecho e no total — porque conteúdo vindo da
+    busca web (web_search.py) não tem limite de tamanho por si só (ao
+    contrário dos chunks do RAG, já truncados na indexação). Sem o limite
+    por trecho, um único resultado web longo o suficiente estouraria
+    max_chars sozinho e seria descartado por inteiro pelo corte de total,
+    deixando o verificador rodar contra contexto vazio sem nenhum aviso.
+    """
     parts = []
     total = 0
     for chunk in context:
-        text = chunk.get("text", "")
+        text = chunk.get("text", "")[:max_chunk_chars]
         if total + len(text) > max_chars:
             break
         parts.append(text)
@@ -90,6 +121,30 @@ def run(state: PipelineState) -> dict:
             "response_final": "",
             "verification_latency_ms": latency_ms,
         }
+
+    if _is_explicit_refusal(draft):
+        # Só é trivialmente fundamentada se a web já foi tentada — ver
+        # docstring do módulo ("Caso especial — recusa explícita")
+        already_tried_web = state.get("fallback_triggered", False)
+        grounded = already_tried_web
+        warnings = (
+            []
+            if already_tried_web
+            else ["Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."]
+        )
+
+        latency_ms = int((time.monotonic() - start) * 1000)
+        update = {
+            "grounded": grounded,
+            "grounding_warnings": warnings,
+            "response_final": draft,
+            "verification_latency_ms": latency_ms,
+        }
+        if not state.get("initial_response_draft"):
+            update["initial_response_draft"] = draft
+            update["initial_grounded"] = grounded
+            update["initial_grounding_warnings"] = warnings
+        return update
 
     context_text = _truncate_context(context)
 
