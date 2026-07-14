@@ -1,5 +1,13 @@
 """Fábrica de LLM — ponto único de configuração do modelo de linguagem.
 
+Provider: Groq (nuvem), servindo llama-3.1-8b-instant. Decisão revertida de
+volta de Ollama local (qwen2.5:3b) — ver justificativa completa em
+docs/decisoes_tecnicas.md e no README. Resumo: mesmo com a GPU do notebook
+tendo só 2GB de VRAM (o que motivou considerar um modelo local pequeno), a
+Groq oferece inferência mais rápida que o hardware local conseguiria e
+libera a GPU inteira para outras tarefas — o custo é depender de rede e de
+uma API key, aceitável para o escopo deste desafio.
+
 Isola a escolha de provider do restante do código: trocar de Groq para
 outro provider requer mudar apenas este arquivo e as variáveis de ambiente.
 
@@ -23,13 +31,18 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
+_DEFAULT_MODEL = "llama-3.1-8b-instant"
 _MAX_RETRIES = 3
 _BACKOFF_BASE = 2  # segundos; espera será 2^(tentativa+1): 2s, 4s, 8s
 
 
 @lru_cache(maxsize=1)
 def get_llm() -> ChatGroq:
-    model = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+    # `or` (não getenv(key, default)) porque .env.example deixa GROQ_MODEL em
+    # branco de propósito — "" é falsy e cai no default, mas
+    # getenv(key, default) só aplicaria o default se a chave estivesse
+    # ausente, não vazia
+    model = os.getenv("GROQ_MODEL") or _DEFAULT_MODEL
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         raise EnvironmentError(
