@@ -1,0 +1,96 @@
+{
+  "trace_id": "61be3e14-21ed-4506-99cd-6744b3b246c8",
+  "query_original": "Qual é a diferença entre memória de curto prazo e memória de longo prazo no LangGraph, em termos de onde cada uma fica escopada e como é persistida?",
+  "timestamp": "2026-07-14T16:13:44.828043+00:00",
+  "total_latency_ms": 33730,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "A memória de curto prazo (short-term memory) no LangGraph é escopada para uma sessão ou thread e é persistida por meio de checkpoints thread-scoped. Isso significa que a memória de curto prazo é limitada a uma única conversa ou thread e é atualizada quando o gráfico é invocado ou um passo é concluído.\n\nJá a memória de longo prazo (long-term memory) no LangGraph é escopada para o usuário ou aplicação e é persistida através do LangGraph store. Isso significa que a memória de longo prazo é compartilhada entre várias conversas ou sessões e pode ser acessada a qualquer momento.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "agents/context",
+    "concepts/persistence",
+    "concepts/functional_api",
+    "concepts/memory"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a diferença entre memória de curto prazo e memória de longo prazo no LangGraph, em termos de onde cada uma fica escopada e como é persistida?",
+      "output": [
+        "Qual é a distinção entre a memória de curta duração e a memória de longa duração no LangGraph, considerando a localização e a persistência de cada uma delas?",
+        "Como o LangGraph diferencia a memória de curto prazo da memória de longo prazo em termos de escopo e persistência, e quais são as implicações para a orquestração de agentes de IA?"
+      ],
+      "latency_ms": 2705
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a diferença entre memória de curto prazo e memória de longo prazo no LangGraph, em termos de onde cada uma fica escopada e como é persistida?",
+        "Qual é a distinção entre a memória de curta duração e a memória de longa duração no LangGraph, considerando a localização e a persistência de cada uma delas?",
+        "Como o LangGraph diferencia a memória de curto prazo da memória de longo prazo em termos de escopo e persistência, e quais são as implicações para a orquestração de agentes de IA?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/memory_0",
+          "similarity": 0.8642,
+          "title": "Memory",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md"
+        },
+        {
+          "chunk_id": "concepts/memory_1",
+          "similarity": 0.8482,
+          "title": "Memory",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8477,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "agents/context_5",
+          "similarity": 0.8476,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8471,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_0",
+          "similarity": 0.837,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 61
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 6,
+      "output_length_chars": 716,
+      "latency_ms": 15401
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 15563,
+      "initial_verdict": null
+    }
+  ]
+}

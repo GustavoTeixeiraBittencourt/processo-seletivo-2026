@@ -1,0 +1,150 @@
+{
+  "trace_id": "04bb4521-f2dc-4505-a2ad-064e9592779e",
+  "query_original": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+  "timestamp": "2026-07-14T14:12:01.413603+00:00",
+  "total_latency_ms": 77037,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre o objeto Command na versão 1.2 do LangGraph em relação à versão 1.0.",
+  "grounded": false,
+  "grounding_warnings": [
+    "- Não há menção ao objeto Command na versão 1.2 do LangGraph.",
+    "- Não há comparação explícita entre a versão 1.2 e a versão 1.0 do LangGraph em relação ao objeto Command."
+  ],
+  "sources": [
+    "https://www.langchain.com/langgraph",
+    "https://github.com/langchain-ai/langgraph",
+    "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0",
+    "https://www.jbinternational.co.uk/article/view/4680",
+    "https://reference.langchain.com/python/langgraph/types/Command"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+      "output": [
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "latency_ms": 1685
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "how-tos/graph-api_40",
+          "similarity": 0.8325,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_13",
+          "similarity": 0.8323,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "agents/context_1",
+          "similarity": 0.8307,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8307,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8294,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8291,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_2",
+          "similarity": 0.8148,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 72
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+      "results": [
+        {
+          "title": "LangGraph 1.0 and 1.2 in 2026: Why Durable State Has Changed Everything for Python Agent Developers",
+          "url": "https://www.jbinternational.co.uk/article/view/4680",
+          "score": 0.5872
+        },
+        {
+          "title": "LangChain and LangGraph 1.0: New Docs, Agent, and Blocks | Harrison Chase posted on the topic | LinkedIn",
+          "url": "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0",
+          "score": 0.5678
+        },
+        {
+          "title": "LangGraph: Agent Orchestration Framework for Reliable AI Agents",
+          "url": "https://www.langchain.com/langgraph",
+          "score": 0.5422
+        },
+        {
+          "title": "langchain-ai/langgraph: Build resilient agents.",
+          "url": "https://github.com/langchain-ai/langgraph",
+          "score": 0.5203
+        },
+        {
+          "title": "Command | langgraph | LangChain Reference",
+          "url": "https://reference.langchain.com/python/langgraph/types/Command",
+          "score": 0.5093
+        }
+      ],
+      "latency_ms": 3086
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 161,
+      "latency_ms": 53320
+    },
+    {
+      "agent": "verifier",
+      "grounded": false,
+      "warnings": [
+        "- Não há menção ao objeto Command na versão 1.2 do LangGraph.",
+        "- Não há comparação explícita entre a versão 1.2 e a versão 1.0 do LangGraph em relação ao objeto Command."
+      ],
+      "latency_ms": 18874,
+      "initial_verdict": {
+        "response_draft": "Sim, o objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.\n\nIsso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.\n\n```python\nreturn Command(\n    update={\"foo\": value},\n    goto=goto,\n    graph=Command.PARENT,\n)\n```\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md",
+        "grounded": false,
+        "warnings": [
+          "- O objeto Command na versão 1.2 do LangGraph ganhou um novo parâmetro chamado `graph` que permite navegar para um nó pai no gráfico quando o comando é executado.",
+          "- Isso é especialmente útil quando você está trabalhando com subgráficos e deseja atualizar o estado do gráfico pai.",
+          "- `Command.PARENT` é usado para navegar para o nó pai."
+        ]
+      }
+    }
+  ]
+}

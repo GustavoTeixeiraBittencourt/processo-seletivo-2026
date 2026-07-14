@@ -1,0 +1,93 @@
+{
+  "trace_id": "153e7ef3-7c00-42d3-9409-0c0b4d43d165",
+  "query_original": "Qual é a capital da França?",
+  "timestamp": "2026-07-14T14:17:05.697408+00:00",
+  "total_latency_ms": 25664,
+  "fallback_used": true,
+  "fallback_reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+  "verifier_triggered_fallback": false,
+  "response_final": "A capital da França é Paris.\n\nFonte: Vários trechos (Trecho 1, Trecho 2, Trecho 3, Trecho 4 e Trecho 5)",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://brasilescola.uol.com.br/geografia/franca.htm",
+    "https://www.facebook.com/pflugaresinesqueciveis/videos/paris-a-capital-da-fran%C3%A7a-%C3%A9-uma-importante-cidade-europeia-e-um-centro-mundial-d/964139365699418",
+    "https://www.reddit.com/r/teenagers/comments/1up4fni/what_is_the_capital_of_paris?tl=pt-br",
+    "https://www.iroamly.com/br/france-travel/what-is-the-capital-of-france.html",
+    "https://pt.wikipedia.org/wiki/Paris"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a capital da França?",
+      "output": [
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "latency_ms": 816
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a capital da França?",
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "chunks_retrieved": [],
+      "fallback_triggered": true,
+      "latency_ms": 57
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": false,
+      "query": "Qual é a capital da França?",
+      "results": [
+        {
+          "title": "Qual é a capital da França? Uma visão geral de Paris",
+          "url": "https://www.iroamly.com/br/france-travel/what-is-the-capital-of-france.html",
+          "score": 0.8875
+        },
+        {
+          "title": "Qual é a capital da França? : r/teenagers",
+          "url": "https://www.reddit.com/r/teenagers/comments/1up4fni/what_is_the_capital_of_paris?tl=pt-br",
+          "score": 0.8854
+        },
+        {
+          "title": "📍Paris, a capital da França, é uma importante cidade ...",
+          "url": "https://www.facebook.com/pflugaresinesqueciveis/videos/paris-a-capital-da-fran%C3%A7a-%C3%A9-uma-importante-cidade-europeia-e-um-centro-mundial-d/964139365699418",
+          "score": 0.8793
+        },
+        {
+          "title": "Paris – Wikipédia, a enciclopédia livre",
+          "url": "https://pt.wikipedia.org/wiki/Paris",
+          "score": 0.8771
+        },
+        {
+          "title": "França: dados gerais, mapa, bandeira, história - Brasil Escola",
+          "url": "https://brasilescola.uol.com.br/geografia/franca.htm",
+          "score": 0.8737
+        }
+      ],
+      "latency_ms": 852
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 103,
+      "latency_ms": 13386
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 10553,
+      "initial_verdict": null
+    }
+  ]
+}

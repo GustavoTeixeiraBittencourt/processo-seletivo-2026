@@ -1,0 +1,115 @@
+{
+  "trace_id": "6b3178b4-b6e3-4ad5-adce-4d1c74cca9e2",
+  "query_original": "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+  "timestamp": "2026-07-14T14:33:59.751594+00:00",
+  "total_latency_ms": 55641,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "Resposta direta à pergunta:\n\nO mecanismo que resolve isso é o uso do objeto `Command` em LangGraph. O `Command` permite que um node atualize o estado do grafo e decida explicitamente para qual node ir em seguida na mesma execução.\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md#command\n\nO uso do `Command` é preferível a edges condicionais quando você precisa realizar atualizações de estado e decisões de controle de fluxo em um mesmo node, pois permite uma maior flexibilidade e controle sobre o fluxo de execução do grafo.\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/durable_execution",
+    "agents/context",
+    "concepts/low_level",
+    "tutorials/rag/langgraph_agentic_rag",
+    "how-tos/graph-api"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+      "output": [
+        "Qual é o mecanismo de LangGraph que permite a um nó atualizar o estado do grafo e tomar decisões de navegação em tempo real, e em que situações ele é mais adequado do que as edges condicionais?",
+        "Como o LangGraph resolve o problema de um nó precisar de atualizar o estado do grafo e escolher o próximo nó a visitar em uma única execução, e quais são as vantagens de usar esse mecanismo em vez de edges condicionais?"
+      ],
+      "latency_ms": 615
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+        "Qual é o mecanismo de LangGraph que permite a um nó atualizar o estado do grafo e tomar decisões de navegação em tempo real, e em que situações ele é mais adequado do que as edges condicionais?",
+        "Como o LangGraph resolve o problema de um nó precisar de atualizar o estado do grafo e escolher o próximo nó a visitar em uma única execução, e quais são as vantagens de usar esse mecanismo em vez de edges condicionais?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "how-tos/graph-api_36",
+          "similarity": 0.8707,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_13",
+          "similarity": 0.8705,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_9",
+          "similarity": 0.8665,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8619,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_25",
+          "similarity": 0.8607,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_18",
+          "similarity": 0.8464,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8463,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_0",
+          "similarity": 0.8357,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_2",
+          "similarity": 0.8319,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 76
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 9,
+      "output_length_chars": 753,
+      "latency_ms": 35251
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 19699,
+      "initial_verdict": null
+    }
+  ]
+}

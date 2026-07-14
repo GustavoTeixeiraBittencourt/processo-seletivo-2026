@@ -1,0 +1,154 @@
+{
+  "trace_id": "a604d840-1227-4242-a6eb-bdd3bd5561fc",
+  "query_original": "Quando a documentação do LangGraph migrou de python.langchain.com/langgraph para docs.langchain.com, quais seções de conceitos foram reorganizadas ou renomeadas nessa mudança?",
+  "timestamp": "2026-07-14T16:14:18.649577+00:00",
+  "total_latency_ms": 17514,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre quais seções de conceitos foram reorganizadas ou renomeadas na migração da documentação do LangGraph de python.langchain.com/langgraph para docs.langchain.com.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://docs.langchain.com/oss/python/langgraph/overview",
+    "https://docs.langchain.com/oss/python/migrate/langgraph-v1",
+    "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0",
+    "https://www.langchain.com/langgraph",
+    "https://www.langchain.com/blog/langchain-langgraph-1dot0"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quando a documentação do LangGraph migrou de python.langchain.com/langgraph para docs.langchain.com, quais seções de conceitos foram reorganizadas ou renomeadas nessa mudança?",
+      "output": [
+        "Qual foi a alteração na estrutura da documentação do LangGraph após a migração de python.langchain.com/langgraph para docs.langchain.com, e quais seções de conceitos foram reestruturadas ou renomeadas?",
+        "Em que medida a reorganização da documentação do LangGraph após a mudança de plataforma afetou a disposição e os nomes das seções de conceitos, e quais foram as principais alterações implementadas?"
+      ],
+      "latency_ms": 524
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quando a documentação do LangGraph migrou de python.langchain.com/langgraph para docs.langchain.com, quais seções de conceitos foram reorganizadas ou renomeadas nessa mudança?",
+        "Qual foi a alteração na estrutura da documentação do LangGraph após a migração de python.langchain.com/langgraph para docs.langchain.com, e quais seções de conceitos foram reestruturadas ou renomeadas?",
+        "Em que medida a reorganização da documentação do LangGraph após a mudança de plataforma afetou a disposição e os nomes das seções de conceitos, e quais foram as principais alterações implementadas?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8411,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8392,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/memory_4",
+          "similarity": 0.839,
+          "title": "Memory",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_2",
+          "similarity": 0.8383,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_1",
+          "similarity": 0.8376,
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_18",
+          "similarity": 0.8337,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_34",
+          "similarity": 0.833,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_15",
+          "similarity": 0.8165,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.815,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 63
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Quando a documentação do LangGraph migrou de python.langchain.com/langgraph para docs.langchain.com, quais seções de conceitos foram reorganizadas ou renomeadas nessa mudança?",
+      "results": [
+        {
+          "title": "LangGraph v1 migration guide - Docs by LangChain",
+          "url": "https://docs.langchain.com/oss/python/migrate/langgraph-v1",
+          "score": 0.7706
+        },
+        {
+          "title": "LangChain and LangGraph 1.0: New Docs, Agent, and Blocks | Harrison Chase posted on the topic | LinkedIn",
+          "url": "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0",
+          "score": 0.6636
+        },
+        {
+          "title": "LangGraph overview - Docs by LangChain",
+          "url": "https://docs.langchain.com/oss/python/langgraph/overview",
+          "score": 0.6565
+        },
+        {
+          "title": "LangGraph: Agent Orchestration Framework for Reliable AI Agents",
+          "url": "https://www.langchain.com/langgraph",
+          "score": 0.6547
+        },
+        {
+          "title": "LangChain and LangGraph Agent Frameworks Reach v1.0 ...",
+          "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+          "score": 0.6208
+        }
+      ],
+      "latency_ms": 6251
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 252,
+      "latency_ms": 10676
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão. A pergunta parece se referir a uma mudança na documentação do LangGraph, mas não há informações sobre essa mudança no contexto fornecido.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

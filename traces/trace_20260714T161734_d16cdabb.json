@@ -1,0 +1,148 @@
+{
+  "trace_id": "d16cdabb-05f5-460b-8d9a-8de2c4201e36",
+  "query_original": "Qual é a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK?",
+  "timestamp": "2026-07-14T16:17:00.477057+00:00",
+  "total_latency_ms": 17888,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://enhancial.substack.com/p/choosing-the-right-ai-framework-a",
+    "https://mcp-server-langgraph.mintlify.app/comparisons/vs-claude-agent-sdk",
+    "https://www.reddit.com/r/ClaudeAI/comments/1qduls6/i_found_a_way_to_use_claude_agent_sdk_inside",
+    "https://www.aiagentshub.net/blog/claude-agent-sdk-guide",
+    "https://www.developersdigest.tech/blog/claude-agent-sdk-vs-langgraph"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK?",
+      "output": [
+        "Qual é a orientação recomendada pela Anthropic para implementar a integração entre o LangGraph e o Claude Agent SDK?",
+        "Como a Anthropic sugere que os desenvolvedores integrem o LangGraph ao Claude Agent SDK de forma otimizada?"
+      ],
+      "latency_ms": 7076
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK?",
+        "Qual é a orientação recomendada pela Anthropic para implementar a integração entre o LangGraph e o Claude Agent SDK?",
+        "Como a Anthropic sugere que os desenvolvedores integrem o LangGraph ao Claude Agent SDK de forma otimizada?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_0",
+          "similarity": 0.8466,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_14",
+          "similarity": 0.8451,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.842,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_0",
+          "similarity": 0.8413,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_13",
+          "similarity": 0.8399,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/agentic_concepts_4",
+          "similarity": 0.8357,
+          "title": "Agent architectures",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/agentic_concepts.md"
+        },
+        {
+          "chunk_id": "concepts/why-langgraph_0",
+          "similarity": 0.8343,
+          "title": "Overview",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/why-langgraph.md"
+        },
+        {
+          "chunk_id": "agents/overview_0",
+          "similarity": 0.8341,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 54
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Qual é a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK?",
+      "results": [
+        {
+          "title": "Claude Agent SDK vs LangGraph: Choosing Your Agent Stack in 2026 - Developers Digest",
+          "url": "https://www.developersdigest.tech/blog/claude-agent-sdk-vs-langgraph",
+          "score": 0.8393
+        },
+        {
+          "title": "MCP Server with LangGraph vs Claude Agent SDK - MCP Server with LangGraph",
+          "url": "https://mcp-server-langgraph.mintlify.app/comparisons/vs-claude-agent-sdk",
+          "score": 0.8124
+        },
+        {
+          "title": "I found a way to use Claude Agent SDK inside LangGraph ...",
+          "url": "https://www.reddit.com/r/ClaudeAI/comments/1qduls6/i_found_a_way_to_use_claude_agent_sdk_inside",
+          "score": 0.7527
+        },
+        {
+          "title": "Claude Agent SDK: Capabilities, Comparison, and ...",
+          "url": "https://www.aiagentshub.net/blog/claude-agent-sdk-guide",
+          "score": 0.5909
+        },
+        {
+          "title": "AI Framework Comparison 2025: OpenAI Agents SDK vs Claude vs LangGraph",
+          "url": "https://enhancial.substack.com/p/choosing-the-right-ai-framework-a",
+          "score": 0.5393
+        }
+      ],
+      "latency_ms": 2254
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 178,
+      "latency_ms": 8504
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre a recomendação oficial da Anthropic para integrar o LangGraph com o Claude Agent SDK.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

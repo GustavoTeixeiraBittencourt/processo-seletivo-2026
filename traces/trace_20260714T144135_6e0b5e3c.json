@@ -1,0 +1,93 @@
+{
+  "trace_id": "6e0b5e3c-71ac-4797-9247-783c5b58f8ac",
+  "query_original": "Qual é a capital da França?",
+  "timestamp": "2026-07-14T14:41:11.866888+00:00",
+  "total_latency_ms": 23778,
+  "fallback_used": true,
+  "fallback_reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+  "verifier_triggered_fallback": false,
+  "response_final": "A capital da França é Paris.\n\n[Fonte: https://pt.wikipedia.org/wiki/Paris, https://en.wikipedia.org/wiki/Paris]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://artsandculture.google.com/entity/m05qtj?hl=pt",
+    "https://pt.wikipedia.org/wiki/Paris",
+    "https://www.instagram.com/reel/DTG-vn6k9H1?hl=en",
+    "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+    "https://en.wikipedia.org/wiki/Paris"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a capital da França?",
+      "output": [
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "latency_ms": 501
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a capital da França?",
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "chunks_retrieved": [],
+      "fallback_triggered": true,
+      "latency_ms": 56
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": false,
+      "query": "Qual é a capital da França?",
+      "results": [
+        {
+          "title": "Paris – Wikipédia, a enciclopédia livre",
+          "url": "https://pt.wikipedia.org/wiki/Paris",
+          "score": 0.8771
+        },
+        {
+          "title": "Paris, a capital da França, é uma das cidades mais ...",
+          "url": "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+          "score": 0.8748
+        },
+        {
+          "title": "Paris — Google Arts & Culture",
+          "url": "https://artsandculture.google.com/entity/m05qtj?hl=pt",
+          "score": 0.8562
+        },
+        {
+          "title": "Você conhece Paris? Neste vídeo em 3D, exploramos a ...",
+          "url": "https://www.instagram.com/reel/DTG-vn6k9H1?hl=en",
+          "score": 0.844
+        },
+        {
+          "title": "Paris",
+          "url": "https://en.wikipedia.org/wiki/Paris",
+          "score": 0.7968
+        }
+      ],
+      "latency_ms": 1820
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 111,
+      "latency_ms": 11577
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 9824,
+      "initial_verdict": null
+    }
+  ]
+}

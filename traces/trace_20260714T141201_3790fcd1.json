@@ -1,0 +1,93 @@
+{
+  "trace_id": "3790fcd1-7cb8-453e-bb41-9565a87563d0",
+  "query_original": "Na Functional API do LangGraph, qual é a diferença de papel entre os decorators @entrypoint e @task?",
+  "timestamp": "2026-07-14T14:11:09.632603+00:00",
+  "total_latency_ms": 51620,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "**Resposta:**\n\nOs decorators `@entrypoint` e `@task` têm papéis diferentes na Functional API do LangGraph.\n\n- O decorator `@entrypoint` é usado para definir o ponto de entrada de um fluxo de trabalho. Ele encapsula a lógica do fluxo de trabalho e gerencia o fluxo de execução, incluindo a gestão de tarefas longas e interrupções. Um entrypoint é uma função que é decorada com `@entrypoint` e é responsável por gerenciar o fluxo de trabalho.\n\n- O decorator `@task` é usado para definir uma unidade de trabalho discreta, como uma chamada de API ou uma etapa de processamento de dados. As tarefas são projetadas para serem executadas assincronamente, permitindo que várias operações sejam executadas simultaneamente sem bloquear. As tarefas também são responsáveis por salvar seus resultados em um checkpoint, permitindo a resolução do fluxo de trabalho a partir do último estado salvo.\n\n**Fonte:**\n\n- [Functional API concepts](https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md)",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/functional_api"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Na Functional API do LangGraph, qual é a diferença de papel entre os decorators @entrypoint e @task?",
+      "output": [
+        "Em LangGraph, como utilizar a Functional API, quais são as funções dos decorators @entrypoint e @task, e como eles contribuem para a estrutura de um agente de IA?",
+        "Na implementação de um agente de IA com a Functional API do LangGraph, como os decorators @entrypoint e @task são utilizados para definir a ordem de execução e a responsabilidade de cada tarefa?"
+      ],
+      "latency_ms": 1540
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Na Functional API do LangGraph, qual é a diferença de papel entre os decorators @entrypoint e @task?",
+        "Em LangGraph, como utilizar a Functional API, quais são as funções dos decorators @entrypoint e @task, e como eles contribuem para a estrutura de um agente de IA?",
+        "Na implementação de um agente de IA com a Functional API do LangGraph, como os decorators @entrypoint e @task são utilizados para definir a ordem de execução e a responsabilidade de cada tarefa?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/functional_api_0",
+          "similarity": 0.8725,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_1",
+          "similarity": 0.8654,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_4",
+          "similarity": 0.8592,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_9",
+          "similarity": 0.8556,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.853,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_2",
+          "similarity": 0.8479,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 64
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 6,
+      "output_length_chars": 1060,
+      "latency_ms": 32275
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 17741,
+      "initial_verdict": null
+    }
+  ]
+}

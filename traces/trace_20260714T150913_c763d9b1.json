@@ -1,0 +1,142 @@
+{
+  "trace_id": "c763d9b1-c186-42ab-9ceb-ec9528be955d",
+  "query_original": "Qual é a versão mais recente do pacote langgraph publicada no PyPI neste momento?",
+  "timestamp": "2026-07-14T15:09:06.937711+00:00",
+  "total_latency_ms": 5755,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "1. A versão mais recente do pacote langgraph publicada no PyPI é 1.2.9.\n2. [Fonte: https://pypi.org/project/langgraph]",
+  "grounded": false,
+  "grounding_warnings": [
+    "1. A versão mais recente do pacote langgraph publicada no PyPI não é 1.2.9, mas sim 0.9.14, conforme mencionado no contexto-fonte.",
+    "2. A resposta gerada não menciona a versão 0.9.14, que é a versão mais recente do pacote langgraph."
+  ],
+  "sources": [
+    "https://pypi.org/project/langgraph",
+    "https://pypi.org/project/langgraph-gen",
+    "https://pepy.tech/project/langgraph-crosschain",
+    "https://pypi.org/project/langgraph-sdk",
+    "https://getsafety.com/packages/pypi/langgraph-kit"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a versão mais recente do pacote langgraph publicada no PyPI neste momento?",
+      "output": [
+        "Qual é a versão atualizada do pacote LangGraph disponível no repositório PyPI?",
+        "Quais são as informações de versão mais atualizadas do LangGraph publicadas no PyPI?"
+      ],
+      "latency_ms": 498
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a versão mais recente do pacote langgraph publicada no PyPI neste momento?",
+        "Qual é a versão atualizada do pacote LangGraph disponível no repositório PyPI?",
+        "Quais são as informações de versão mais atualizadas do LangGraph publicadas no PyPI?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8484,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_0",
+          "similarity": 0.8476,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.8465,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_16",
+          "similarity": 0.845,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_15",
+          "similarity": 0.8439,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8345,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 57
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Qual é a versão mais recente do pacote langgraph publicada no PyPI neste momento?",
+      "results": [
+        {
+          "title": "langgraph-kit (PyPI) — Safety Package & Vulnerability Database",
+          "url": "https://getsafety.com/packages/pypi/langgraph-kit",
+          "score": 0.8636
+        },
+        {
+          "title": "langgraph-crosschain · 1.1k downloads on PyPI",
+          "url": "https://pepy.tech/project/langgraph-crosschain",
+          "score": 0.8471
+        },
+        {
+          "title": "langgraph-sdk",
+          "url": "https://pypi.org/project/langgraph-sdk",
+          "score": 0.8352
+        },
+        {
+          "title": "langgraph",
+          "url": "https://pypi.org/project/langgraph",
+          "score": 0.763
+        },
+        {
+          "title": "langgraph-gen",
+          "url": "https://pypi.org/project/langgraph-gen",
+          "score": 0.668
+        }
+      ],
+      "latency_ms": 3567
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 118,
+      "latency_ms": 360
+    },
+    {
+      "agent": "verifier",
+      "grounded": false,
+      "warnings": [
+        "1. A versão mais recente do pacote langgraph publicada no PyPI não é 1.2.9, mas sim 0.9.14, conforme mencionado no contexto-fonte.",
+        "2. A resposta gerada não menciona a versão 0.9.14, que é a versão mais recente do pacote langgraph."
+      ],
+      "latency_ms": 1273,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

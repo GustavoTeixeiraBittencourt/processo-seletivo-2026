@@ -1,0 +1,148 @@
+{
+  "trace_id": "4faf241b-69e9-4dfa-8d80-5dc67ee29d6a",
+  "query_original": "Segundo discussões recentes da comunidade, a curva de aprendizado do LangGraph é considerada mais alta ou mais baixa do que a dos Workflows do LlamaIndex?",
+  "timestamp": "2026-07-14T15:12:42.080204+00:00",
+  "total_latency_ms": 15019,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre a comparação direta da curva de aprendizado do LangGraph em relação ao LlamaIndex.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://hiteshmishra708.medium.com/langchain-vs-langgraph-vs-llamaindex-what-i-learned-after-actually-using-them-829fca36f6c5",
+    "https://www.truefoundry.com/pt/blog/llamaindex-vs-langgraph",
+    "https://www.developersdigest.tech/compare/langchain-vs-llamaindex",
+    "https://leanware.co/insights/langgraph-vs-llamaindex",
+    "https://www.youtube.com/watch?v=TZTd64O5ZqE"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Segundo discussões recentes da comunidade, a curva de aprendizado do LangGraph é considerada mais alta ou mais baixa do que a dos Workflows do LlamaIndex?",
+      "output": [
+        "Quais são as comparações recentes entre a curva de aprendizado do LangGraph e a dos Workflows do LlamaIndex, e qual é a tendência observada?",
+        "Como a curva de aprendizado do LangGraph se compara com a dos Workflows do LlamaIndex, e quais são as implicações dessas diferenças para a orquestração de agentes de IA?"
+      ],
+      "latency_ms": 2465
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Segundo discussões recentes da comunidade, a curva de aprendizado do LangGraph é considerada mais alta ou mais baixa do que a dos Workflows do LlamaIndex?",
+        "Quais são as comparações recentes entre a curva de aprendizado do LangGraph e a dos Workflows do LlamaIndex, e qual é a tendência observada?",
+        "Como a curva de aprendizado do LangGraph se compara com a dos Workflows do LlamaIndex, e quais são as implicações dessas diferenças para a orquestração de agentes de IA?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8455,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8443,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_2",
+          "similarity": 0.843,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_1",
+          "similarity": 0.8394,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/agentic_concepts_4",
+          "similarity": 0.839,
+          "title": "Agent architectures",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/agentic_concepts.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_2",
+          "similarity": 0.8383,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.8289,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "concepts/why-langgraph_0",
+          "similarity": 0.8279,
+          "title": "Overview",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/why-langgraph.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 66
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Segundo discussões recentes da comunidade, a curva de aprendizado do LangGraph é considerada mais alta ou mais baixa do que a dos Workflows do LlamaIndex?",
+      "results": [
+        {
+          "title": "LangChain / LangGraph vs LlamaIndex (2026) - Which AI Frameworks Tool? - Developers Digest",
+          "url": "https://www.developersdigest.tech/compare/langchain-vs-llamaindex",
+          "score": 0.7674
+        },
+        {
+          "title": "LangGraph vs LlamaIndex (2026) – Which AI Framework Is ...",
+          "url": "https://www.youtube.com/watch?v=TZTd64O5ZqE",
+          "score": 0.7145
+        },
+        {
+          "title": "LangChain vs LangGraph vs LlamaIndex — What I Learned After Actually Using Them | by Hitesh Mishra | May, 2026 | Medium",
+          "url": "https://hiteshmishra708.medium.com/langchain-vs-langgraph-vs-llamaindex-what-i-learned-after-actually-using-them-829fca36f6c5",
+          "score": 0.6167
+        },
+        {
+          "title": "LangGraph vs LlamaIndex: Comprehensive Comparison & Guide",
+          "url": "https://leanware.co/insights/langgraph-vs-llamaindex",
+          "score": 0.5525
+        },
+        {
+          "title": "LLamaIndex vs LangGraph: Comparing LLM Frameworks",
+          "url": "https://www.truefoundry.com/pt/blog/llamaindex-vs-langgraph",
+          "score": 0.5401
+        }
+      ],
+      "latency_ms": 2638
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 175,
+      "latency_ms": 9850
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

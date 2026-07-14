@@ -1,0 +1,113 @@
+{
+  "trace_id": "d7d9c6e9-f295-4fa4-afb5-a3b02e810fb3",
+  "query_original": "Por que os checkpointers do LangGraph são um pré-requisito para workflows de human-in-the-loop, e qual das duas formas de pausar um grafo permite decidir a pausa a partir do estado atual dentro de um node?",
+  "timestamp": "2026-07-14T14:34:55.536980+00:00",
+  "total_latency_ms": 65353,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "Resposta direta à pergunta:\n\nOs checkpointers do LangGraph são um pré-requisito para workflows de human-in-the-loop porque permitem que o estado do grafo seja salvo e restaurado em um ponto específico, permitindo que o usuário interaja com o grafo em um momento posterior. Isso é especialmente útil em workflows que envolvem longas tarefas ou que precisam ser interrompidos e retomados em um momento posterior.\n\nA forma de pausar um grafo que permite decidir a pausa a partir do estado atual dentro de um node é a **Dynamic Interrupt**. A Dynamic Interrupt permite que o usuário pausar o grafo em um momento específico, baseado no estado atual do grafo, dentro de um node específico.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/human_in_the_loop.md]\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/human_in_the_loop.md#pause-using-interrupt]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/functional_api",
+    "concepts/human_in_the_loop",
+    "concepts/persistence"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Por que os checkpointers do LangGraph são um pré-requisito para workflows de human-in-the-loop, e qual das duas formas de pausar um grafo permite decidir a pausa a partir do estado atual dentro de um node?",
+      "output": [
+        "Quais são os requisitos necessários para implementar workflows de human-in-the-loop no LangGraph, e como os checkpointers contribuem para essa funcionalidade, especialmente em relação à pausa de grafo?",
+        "Em workflows de human-in-the-loop no LangGraph, como os checkpointers atuam como pré-requisito, e quais são as diferenças entre pausar um grafo por meio de \"pause at node\" e \"pause at edge\"?"
+      ],
+      "latency_ms": 432
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Por que os checkpointers do LangGraph são um pré-requisito para workflows de human-in-the-loop, e qual das duas formas de pausar um grafo permite decidir a pausa a partir do estado atual dentro de um node?",
+        "Quais são os requisitos necessários para implementar workflows de human-in-the-loop no LangGraph, e como os checkpointers contribuem para essa funcionalidade, especialmente em relação à pausa de grafo?",
+        "Em workflows de human-in-the-loop no LangGraph, como os checkpointers atuam como pré-requisito, e quais são as diferenças entre pausar um grafo por meio de \"pause at node\" e \"pause at edge\"?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/human_in_the_loop_0",
+          "similarity": 0.8622,
+          "title": "Human-in-the-loop",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/human_in_the_loop.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.86,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_1",
+          "similarity": 0.8575,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8568,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_1",
+          "similarity": 0.8549,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_11",
+          "similarity": 0.8469,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_4",
+          "similarity": 0.8464,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_2",
+          "similarity": 0.8438,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_12",
+          "similarity": 0.8431,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 82
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 9,
+      "output_length_chars": 1001,
+      "latency_ms": 46222
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 18617,
+      "initial_verdict": null
+    }
+  ]
+}

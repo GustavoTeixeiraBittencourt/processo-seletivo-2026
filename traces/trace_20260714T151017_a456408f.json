@@ -1,0 +1,154 @@
+{
+  "trace_id": "a456408f-e923-4dd1-a4c9-e3b1ba1f8c09",
+  "query_original": "Depois do lançamento da versão 1.0, o LangGraph passou a oferecer integração nativa com algum novo provedor de LLM que não existia antes?",
+  "timestamp": "2026-07-14T15:09:13.376030+00:00",
+  "total_latency_ms": 37535,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão à pergunta.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://medium.com/mitb-for-all/langchain-a-second-look-6ed720e27fec",
+    "https://pub.towardsai.net/with-langchain-1-0-do-we-still-need-langgraph-4103a245b13e",
+    "https://www.youtube.com/watch?v=hjIlj4OAECQ",
+    "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+    "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Depois do lançamento da versão 1.0, o LangGraph passou a oferecer integração nativa com algum novo provedor de LLM que não existia antes?",
+      "output": [
+        "Após a disponibilização da versão 1.0, o LangGraph introduziu uma integração nativa com um novo provedor de modelos de linguagem de grande escala (LLM) que não estava disponível anteriormente?",
+        "Com a versão 1.0, o LangGraph incorporou uma interface de integração direta com um novo provedor de linguagem de modelo avançado (LLM) que não fazia parte de sua infraestrutura anterior?"
+      ],
+      "latency_ms": 408
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Depois do lançamento da versão 1.0, o LangGraph passou a oferecer integração nativa com algum novo provedor de LLM que não existia antes?",
+        "Após a disponibilização da versão 1.0, o LangGraph introduziu uma integração nativa com um novo provedor de modelos de linguagem de grande escala (LLM) que não estava disponível anteriormente?",
+        "Com a versão 1.0, o LangGraph incorporou uma interface de integração direta com um novo provedor de linguagem de modelo avançado (LLM) que não fazia parte de sua infraestrutura anterior?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_2",
+          "similarity": 0.8284,
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8283,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_14",
+          "similarity": 0.8276,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8272,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.827,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_1",
+          "similarity": 0.8251,
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_4",
+          "similarity": 0.8243,
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_16",
+          "similarity": 0.8237,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "concepts/streaming_0",
+          "similarity": 0.8235,
+          "title": "Streaming",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/streaming.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 61
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Depois do lançamento da versão 1.0, o LangGraph passou a oferecer integração nativa com algum novo provedor de LLM que não existia antes?",
+      "results": [
+        {
+          "title": "LangChain and LangGraph 1.0: New Docs, Agent ...",
+          "url": "https://www.linkedin.com/posts/harrison-chase-961287118_announcing-langchain-and-langgraph-10-activity-7386795886137434114--AC0",
+          "score": 0.5525
+        },
+        {
+          "title": "LangChain and LangGraph Agent Frameworks Reach v1.0 ...",
+          "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+          "score": 0.5229
+        },
+        {
+          "title": "LangChain Reaches 1.0 - Whats new?",
+          "url": "https://www.youtube.com/watch?v=hjIlj4OAECQ",
+          "score": 0.4285
+        },
+        {
+          "title": "With LangChain 1.0, Do We Still Need LangGraph? | by Ruiwen (Rei-1)",
+          "url": "https://pub.towardsai.net/with-langchain-1-0-do-we-still-need-langgraph-4103a245b13e",
+          "score": 0.4101
+        },
+        {
+          "title": "LangChain 1.0 — A second look",
+          "url": "https://medium.com/mitb-for-all/langchain-a-second-look-6ed720e27fec",
+          "score": 0.3511
+        }
+      ],
+      "latency_ms": 6148
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 98,
+      "latency_ms": 30918
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

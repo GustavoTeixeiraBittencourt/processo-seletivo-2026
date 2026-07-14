@@ -1,0 +1,101 @@
+{
+  "trace_id": "4a23f4a0-e91b-4186-a87d-df07a4429c65",
+  "query_original": "O que é execução durável (durable execution) no LangGraph, e quais dois requisitos o workflow precisa satisfazer para aproveitar bem esse recurso?",
+  "timestamp": "2026-07-14T16:12:39.207402+00:00",
+  "total_latency_ms": 34223,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "A execução durável (durable execution) no LangGraph é uma técnica que permite que um processo ou fluxo de trabalho salve seu progresso em pontos-chave, permitindo que ele pausado e posteriormente resuma exatamente onde parou. Isso é particularmente útil em cenários que exigem interação do usuário (human-in-the-loop), onde os usuários podem inspecionar, validar ou modificar o processo antes de continuar, e em tarefas longas que podem enfrentar interrupções ou erros.\n\nPara aproveitar bem esse recurso, o workflow precisa satisfazer dois requisitos:\n\n1. **Determinismo**: O workflow precisa ser determinístico, ou seja, produzir o mesmo resultado para a mesma entrada.\n2. **Idempotência**: O workflow precisa ser idempotente, ou seja, não produzir efeitos colaterais indesejados se uma operação for repetida.\n\nEsses requisitos são importantes para garantir que o workflow possa ser resumido sem reprocessar passos anteriores, mesmo após uma pausa significativa.\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/functional_api",
+    "concepts/durable_execution",
+    "agents/context"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "O que é execução durável (durable execution) no LangGraph, e quais dois requisitos o workflow precisa satisfazer para aproveitar bem esse recurso?",
+      "output": [
+        "Qual é a definição de execução durável no LangGraph e quais são os dois critérios que um workflow deve atender para maximizar o benefício desse recurso?",
+        "O que caracteriza a execução durável em LangGraph e quais são os dois requisitos fundamentais que um workflow deve cumprir para aproveitar ao máximo essa funcionalidade?"
+      ],
+      "latency_ms": 687
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "O que é execução durável (durable execution) no LangGraph, e quais dois requisitos o workflow precisa satisfazer para aproveitar bem esse recurso?",
+        "Qual é a definição de execução durável no LangGraph e quais são os dois critérios que um workflow deve atender para maximizar o benefício desse recurso?",
+        "O que caracteriza a execução durável em LangGraph e quais são os dois requisitos fundamentais que um workflow deve cumprir para aproveitar ao máximo essa funcionalidade?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/durable_execution_0",
+          "similarity": 0.8892,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_2",
+          "similarity": 0.8752,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_3",
+          "similarity": 0.8733,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_11",
+          "similarity": 0.8627,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_2",
+          "similarity": 0.8624,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.851,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_1",
+          "similarity": 0.8485,
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 75
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 7,
+      "output_length_chars": 1109,
+      "latency_ms": 14256
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 19205,
+      "initial_verdict": null
+    }
+  ]
+}

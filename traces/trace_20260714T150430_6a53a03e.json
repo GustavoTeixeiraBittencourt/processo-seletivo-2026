@@ -1,0 +1,117 @@
+{
+  "trace_id": "6a53a03e-c176-46dc-9ae8-f9738f0b1725",
+  "query_original": "Quais categorias de dados o sistema de streaming do LangGraph permite transmitir em tempo real durante a execução de um grafo?",
+  "timestamp": "2026-07-14T15:03:29.145496+00:00",
+  "total_latency_ms": 61505,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "O sistema de streaming do LangGraph permite transmitir em tempo real as seguintes categorias de dados durante a execução de um grafo:\n\n1. **Workflow progress** — atualizações de estado após a execução de cada nó do grafo.\n2. **LLM tokens** — tokens gerados pelo modelo de linguagem em tempo real.\n3. **Custom updates** — sinais personalizados emitidos pelo usuário (por exemplo, \"Foi recuperado 10/100 registros\").\n\nFonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/streaming.md",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "how-tos/graph-api",
+    "concepts/streaming",
+    "agents/overview",
+    "agents/context",
+    "concepts/memory",
+    "concepts/functional_api",
+    "concepts/pregel"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quais categorias de dados o sistema de streaming do LangGraph permite transmitir em tempo real durante a execução de um grafo?",
+      "output": [
+        "Quais tipos de dados o LangGraph pode processar em tempo real durante a execução de um grafo de orquestração de agentes?",
+        "Quais categorias de dados são suportadas pelo sistema de streaming do LangGraph para transmissão em tempo real durante a execução de um grafo de IA?"
+      ],
+      "latency_ms": 2461
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quais categorias de dados o sistema de streaming do LangGraph permite transmitir em tempo real durante a execução de um grafo?",
+        "Quais tipos de dados o LangGraph pode processar em tempo real durante a execução de um grafo de orquestração de agentes?",
+        "Quais categorias de dados são suportadas pelo sistema de streaming do LangGraph para transmissão em tempo real durante a execução de um grafo de IA?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8491,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/streaming_0",
+          "similarity": 0.8471,
+          "title": "Streaming",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/streaming.md"
+        },
+        {
+          "chunk_id": "agents/overview_0",
+          "similarity": 0.845,
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "agents/context_1",
+          "similarity": 0.8436,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_0",
+          "similarity": 0.8435,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        },
+        {
+          "chunk_id": "concepts/memory_0",
+          "similarity": 0.8434,
+          "title": "Memory",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8309,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_1",
+          "similarity": 0.8296,
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_14",
+          "similarity": 0.8273,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 51
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 9,
+      "output_length_chars": 552,
+      "latency_ms": 44345
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 14648,
+      "initial_verdict": null
+    }
+  ]
+}

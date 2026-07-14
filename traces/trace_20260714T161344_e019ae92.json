@@ -1,0 +1,95 @@
+{
+  "trace_id": "e019ae92-3a81-4e18-ba1c-f1a1c3d83965",
+  "query_original": "Ao usar a funcionalidade de time travel do LangGraph para retomar a execução a partir de um checkpoint anterior, o que acontece com o histórico de execução: ele é sobrescrito ou outra coisa acontece?",
+  "timestamp": "2026-07-14T16:13:13.573387+00:00",
+  "total_latency_ms": 31194,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "Quando você usa a funcionalidade de time travel do LangGraph para retomar a execução a partir de um checkpoint anterior, um novo ramo é criado no histórico de execução. Isso significa que a execução anterior não é sobrescrita, mas sim uma nova execução é iniciada a partir do checkpoint escolhido.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/time-travel.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/functional_api",
+    "concepts/time-travel",
+    "concepts/persistence"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Ao usar a funcionalidade de time travel do LangGraph para retomar a execução a partir de um checkpoint anterior, o que acontece com o histórico de execução: ele é sobrescrito ou outra coisa acontece?",
+      "output": [
+        "Ao utilizar a funcionalidade de time travel do LangGraph para reexecutar a partir de um ponto de verificação anterior, como o histórico de execução é atualizado?",
+        "Ao reexecutar a partir de um checkpoint anterior com a funcionalidade de time travel do LangGraph, como o registro de execução é gerenciado para evitar sobrescrita de informações importantes?"
+      ],
+      "latency_ms": 1610
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Ao usar a funcionalidade de time travel do LangGraph para retomar a execução a partir de um checkpoint anterior, o que acontece com o histórico de execução: ele é sobrescrito ou outra coisa acontece?",
+        "Ao utilizar a funcionalidade de time travel do LangGraph para reexecutar a partir de um ponto de verificação anterior, como o histórico de execução é atualizado?",
+        "Ao reexecutar a partir de um checkpoint anterior com a funcionalidade de time travel do LangGraph, como o registro de execução é gerenciado para evitar sobrescrita de informações importantes?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8496,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8457,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/time-travel_0",
+          "similarity": 0.8448,
+          "title": "Time Travel ⏱️",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/time-travel.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8411,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_2",
+          "similarity": 0.8378,
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_1",
+          "similarity": 0.8371,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 81
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 6,
+      "output_length_chars": 439,
+      "latency_ms": 14043
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 15460,
+      "initial_verdict": null
+    }
+  ]
+}

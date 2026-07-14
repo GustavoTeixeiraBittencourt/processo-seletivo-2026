@@ -1,0 +1,122 @@
+{
+  "trace_id": "26a53b38-47f6-45ed-8f1e-cec4097948df",
+  "query_original": "Quando duas partes de um grafo do LangGraph são desenvolvidas como subgraphs, como a comunicação de estado entre o grafo pai e o subgraph muda dependendo de os esquemas de estado serem compartilhados ou não?",
+  "timestamp": "2026-07-14T15:02:12.973064+00:00",
+  "total_latency_ms": 18179,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "Quando duas partes de um grafo do LangGraph são desenvolvidas como subgraphs, a comunicação de estado entre o grafo pai e o subgraph depende de se os esquemas de estado forem compartilhados ou não.\n\nSe os esquemas de estado forem compartilhados, o subgraph pode incluir o grafo pai como um nó, e o estado compartilhado pode ser atualizado usando reducers. Nesse caso, a comunicação de estado é feita através da inclusão do subgraph como um nó no grafo pai.\n\nSe os esquemas de estado não forem compartilhados, a comunicação de estado deve ser feita de outra forma, como por meio de mensagens ou de outros mecanismos de comunicação.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/subgraphs.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "how-tos/graph-api",
+    "concepts/subgraphs",
+    "agents/context",
+    "concepts/low_level",
+    "concepts/persistence",
+    "tutorials/get-started/1-build-basic-chatbot"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quando duas partes de um grafo do LangGraph são desenvolvidas como subgraphs, como a comunicação de estado entre o grafo pai e o subgraph muda dependendo de os esquemas de estado serem compartilhados ou não?",
+      "output": [
+        "Como as partes de um grafo do LangGraph são fragmentadas em subgráficos, como a transmissão de informações de estado entre o grafo pai e os subgráficos é afetada pela compartilhamento ou não dos esquemas de estado?",
+        "Em um contexto de orquestração de agentes de IA, como a comunicação de estado entre um grafo pai e seus subgráficos é influenciada pela escolha de compartilhar ou não os esquemas de estado em um ambiente de LangGraph?"
+      ],
+      "latency_ms": 991
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quando duas partes de um grafo do LangGraph são desenvolvidas como subgraphs, como a comunicação de estado entre o grafo pai e o subgraph muda dependendo de os esquemas de estado serem compartilhados ou não?",
+        "Como as partes de um grafo do LangGraph são fragmentadas em subgráficos, como a transmissão de informações de estado entre o grafo pai e os subgráficos é afetada pela compartilhamento ou não dos esquemas de estado?",
+        "Em um contexto de orquestração de agentes de IA, como a comunicação de estado entre um grafo pai e seus subgráficos é influenciada pela escolha de compartilhar ou não os esquemas de estado em um ambiente de LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/subgraphs_0",
+          "similarity": 0.8427,
+          "title": "Subgraphs",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/subgraphs.md"
+        },
+        {
+          "chunk_id": "agents/context_1",
+          "similarity": 0.8386,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8373,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8364,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_15",
+          "similarity": 0.835,
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8348,
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_27",
+          "similarity": 0.8343,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_1",
+          "similarity": 0.8318,
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_14",
+          "similarity": 0.8297,
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8279,
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 9162
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 10,
+      "output_length_chars": 770,
+      "latency_ms": 1259
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 6767,
+      "initial_verdict": null
+    }
+  ]
+}
