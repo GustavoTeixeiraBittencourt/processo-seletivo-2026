@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag-langgraph
+    ports:
+      - "8501:8501"
+    # Carrega GROQ_API_KEY, GROQ_MODEL e TAVILY_API_KEY do arquivo .env local.
+    # Nunca commitar o .env — ver .gitignore.
+    env_file:
+      - .env
+    volumes:
+      # Índice ChromaDB pré-construído: montado para que o container use o
+      # mesmo índice do host sem ter que reconstruí-lo. Se chroma.sqlite3
+      # não existir, o entrypoint executa build_index automaticamente e o
+      # resultado persiste aqui (no host).
+      - ./data/processed:/app/data/processed
+
+      # Traces gerados pelo pipeline em runtime — visíveis no host para
+      # inspeção sem precisar acessar o container.
+      - ./traces:/app/traces
+
+      # Pasta completa do benchmark: qa_pairs.json (leitura) e resultados
+      # gerados por benchmark.py (escrita).
+      - ./benchmark:/app/benchmark
+    restart: unless-stopped
