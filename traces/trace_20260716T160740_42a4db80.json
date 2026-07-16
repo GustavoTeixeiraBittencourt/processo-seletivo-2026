@@ -1,0 +1,132 @@
+{
+  "trace_id": "42a4db80-951f-4e86-a52e-9e94cdd0001b",
+  "query_original": "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+  "timestamp": "2026-07-16T16:07:25.192700+00:00",
+  "total_latency_ms": 15260,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "O mecanismo que resolve isso é o retorno de um objeto `Command` do node.\n\nUm node pode retornar um objeto `Command` que contém tanto atualizações de estado quanto informações de controle de fluxo, como qual node ir em seguida. Isso permite que o node atualize o estado do grafo e decida explicitamente para qual node ir em seguida na mesma execução.\n\nEm comparação com edges condicionais, o retorno de um objeto `Command` é preferível quando você precisa combinar atualizações de estado e controle de fluxo em um único node. Isso pode ser útil quando você precisa realizar operações complexas que envolvem tanto atualizações de estado quanto decisões de controle de fluxo.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/durable_execution",
+    "tutorials/rag/langgraph_agentic_rag",
+    "concepts/persistence",
+    "concepts/low_level",
+    "agents/context",
+    "how-tos/graph-api"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+      "output": [
+        "Qual é o mecanismo de LangGraph que permite a um nó atualizar o estado do grafo e tomar decisões de navegação em tempo real, e em que situações ele é mais adequado do que as edges condicionais?",
+        "Como o LangGraph resolve o problema de um nó precisar de atualizar o estado do grafo e escolher o próximo nó a visitar em uma única execução, e quais são as vantagens de usar esse mecanismo em vez de edges condicionais?"
+      ],
+      "latency_ms": 507
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Um node do LangGraph precisa, na mesma execução, atualizar o estado do grafo e decidir explicitamente para qual node ir em seguida. Qual mecanismo resolve isso, e quando ele é preferível a edges condicionais?",
+        "Qual é o mecanismo de LangGraph que permite a um nó atualizar o estado do grafo e tomar decisões de navegação em tempo real, e em que situações ele é mais adequado do que as edges condicionais?",
+        "Como o LangGraph resolve o problema de um nó precisar de atualizar o estado do grafo e escolher o próximo nó a visitar em uma única execução, e quais são as vantagens de usar esse mecanismo em vez de edges condicionais?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/low_level_0",
+          "similarity": 0.8357,
+          "matched_by": "hybrid",
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_13",
+          "similarity": 0.8705,
+          "matched_by": "hybrid",
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8463,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_36",
+          "similarity": 0.8707,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_9",
+          "similarity": 0.8665,
+          "matched_by": "dense",
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8619,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_9",
+          "similarity": 0.8583,
+          "matched_by": "hybrid",
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8429,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_18",
+          "similarity": 0.8464,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_2",
+          "similarity": 0.8417,
+          "matched_by": "dense",
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 77
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 10,
+      "output_length_chars": 812,
+      "latency_ms": 741
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 13935,
+      "initial_verdict": null
+    }
+  ]
+}

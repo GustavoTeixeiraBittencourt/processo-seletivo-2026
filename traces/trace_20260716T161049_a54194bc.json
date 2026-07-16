@@ -1,0 +1,156 @@
+{
+  "trace_id": "a54194bc-6528-4398-9fcc-5abb96f5cef7",
+  "query_original": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+  "timestamp": "2026-07-16T16:10:16.132533+00:00",
+  "total_latency_ms": 18251,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão. O contexto fornece uma lista de issues, mas não há informações sobre as reações/votos para cada uma delas. Além disso, a lista de issues parece estar em ordem cronológica, mas não há informações sobre a quantidade de reações/votos para cada uma delas.\n\nNo entanto, posso sugerir que você verifique o repositório GitHub do LangGraph e busque as issues com mais reações/votos. Você pode fazer isso acessando o repositório e procurando pelas issues com mais reações/votos.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://security.snyk.io/package/pip/langgraph",
+    "https://github.com/topics/langgraph?o=asc&s=stars",
+    "https://github.com/langchain-ai/langgraph",
+    "https://github.com/topics/langgraph",
+    "https://github.com/langchain-ai/langgraph/issues"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+      "output": [
+        "Quais são os problemas pendentes com maior número de comentários e votos no repositório LangGraph no GitHub atualmente?",
+        "Quais são as issues mais discutidas e votadas no repositório LangGraph no GitHub, atualmente?"
+      ],
+      "latency_ms": 1562
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+        "Quais são os problemas pendentes com maior número de comentários e votos no repositório LangGraph no GitHub atualmente?",
+        "Quais são as issues mais discutidas e votadas no repositório LangGraph no GitHub, atualmente?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8431,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.8402,
+          "matched_by": "dense",
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "tutorials/rag/langgraph_agentic_rag_2",
+          "similarity": 0.8428,
+          "matched_by": "dense",
+          "title": "Agentic RAG",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/rag/langgraph_agentic_rag.md"
+        },
+        {
+          "chunk_id": "concepts/why-langgraph_0",
+          "similarity": 0.8419,
+          "matched_by": "dense",
+          "title": "Overview",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/why-langgraph.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8321,
+          "matched_by": "hybrid",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/low_level_15",
+          "similarity": 0.8391,
+          "matched_by": "dense",
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_27",
+          "similarity": 0.8376,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8378,
+          "matched_by": "dense",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 60
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Quais são as issues em aberto com mais reações/votos no repositório GitHub do LangGraph atualmente?",
+      "results": [
+        {
+          "title": "langchain-ai/langgraph: Build resilient agents.",
+          "url": "https://github.com/langchain-ai/langgraph",
+          "score": 0.6965
+        },
+        {
+          "title": "Issues · langchain-ai/langgraph",
+          "url": "https://github.com/langchain-ai/langgraph/issues",
+          "score": 0.662
+        },
+        {
+          "title": "langgraph · GitHub Topics",
+          "url": "https://github.com/topics/langgraph?o=asc&s=stars",
+          "score": 0.6326
+        },
+        {
+          "title": "langgraph | Snyk",
+          "url": "https://security.snyk.io/package/pip/langgraph",
+          "score": 0.5632
+        },
+        {
+          "title": "langgraph · GitHub Topics",
+          "url": "https://github.com/topics/langgraph",
+          "score": 0.5419
+        }
+      ],
+      "latency_ms": 2608
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 557,
+      "latency_ms": 14021
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão. O contexto fornece informações sobre o LangGraph, incluindo sua arquitetura, componentes e exemplos de código, mas não menciona repositórios GitHub ou issues em aberto.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "trace_id": "b4bd7fb0-e94f-4323-8ba0-633a14862a12",
+  "query_original": "Quais são as novidades do LangGraph 1.3?",
+  "timestamp": "2026-07-16T16:05:49.029266+00:00",
+  "total_latency_ms": 21338,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre as novidades do LangGraph 1.3.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "http://www.menosfios.com/quais-sao-as-novidades-do-android-6-0-marshmallow",
+    "https://dev.to/cristuker/nodejs-19-quais-sao-as-novidades-34hm",
+    "https://diolinux.com.br/noticias/novidades-do-freedos-1-3.html",
+    "https://www.menosfios.com/wwdc-quais-sao-as-novidades-do-ios-8",
+    "https://www.menosfios.com/quais-sao-as-novidades-do-android-6-0-marshmallow"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Quais são as novidades do LangGraph 1.3?",
+      "output": [
+        "Qual é o conteúdo de atualização do LangGraph 1.3?",
+        "Quais são as funcionalidades adicionadas ou melhoradas na versão 1.3 do LangGraph?"
+      ],
+      "latency_ms": 5967
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Quais são as novidades do LangGraph 1.3?",
+        "Qual é o conteúdo de atualização do LangGraph 1.3?",
+        "Quais são as funcionalidades adicionadas ou melhoradas na versão 1.3 do LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8391,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8391,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/streaming_0",
+          "similarity": 0.8337,
+          "matched_by": "dense",
+          "title": "Streaming",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/streaming.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_1",
+          "similarity": 0.8301,
+          "matched_by": "dense",
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        },
+        {
+          "chunk_id": "agents/overview_1",
+          "similarity": 0.8339,
+          "matched_by": "dense",
+          "title": "Agent development using prebuilt components",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/overview.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_3",
+          "similarity": 0.8264,
+          "matched_by": "hybrid",
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "tutorials/get-started/1-build-basic-chatbot_1",
+          "similarity": 0.8337,
+          "matched_by": "dense",
+          "title": "Build a basic chatbot",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/tutorials/get-started/1-build-basic-chatbot.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_0",
+          "similarity": 0.8304,
+          "matched_by": "dense",
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 9880
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Quais são as novidades do LangGraph 1.3?",
+      "results": [
+        {
+          "title": "O que FreeDOS e quais as novidades da versão 1.3 - Diolinux",
+          "url": "https://diolinux.com.br/noticias/novidades-do-freedos-1-3.html",
+          "score": 0.2389
+        },
+        {
+          "title": "Node.Js 19, quais são as novidades? - DEV Community",
+          "url": "https://dev.to/cristuker/nodejs-19-quais-sao-as-novidades-34hm",
+          "score": 0.0652
+        },
+        {
+          "title": "[WWDC] Quais são as novidades do iOS 8 ? - Menos Fios",
+          "url": "https://www.menosfios.com/wwdc-quais-sao-as-novidades-do-ios-8",
+          "score": 0.0561
+        },
+        {
+          "title": "Quais são as novidades do Android 6.0 Marshmallow? - Menos Fios",
+          "url": "http://www.menosfios.com/quais-sao-as-novidades-do-android-6-0-marshmallow",
+          "score": 0.0442
+        },
+        {
+          "title": "Quais são as novidades do Android 6.0 Marshmallow? - Menos Fios",
+          "url": "https://www.menosfios.com/quais-sao-as-novidades-do-android-6-0-marshmallow",
+          "score": 0.0438
+        }
+      ],
+      "latency_ms": 3862
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 123,
+      "latency_ms": 1629
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre as novidades do LangGraph 1.3.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

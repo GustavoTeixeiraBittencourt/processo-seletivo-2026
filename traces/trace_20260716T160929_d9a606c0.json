@@ -1,0 +1,163 @@
+{
+  "trace_id": "d9a606c0-df26-407d-bdc8-49e1976c2011",
+  "query_original": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+  "timestamp": "2026-07-16T16:08:55.064709+00:00",
+  "total_latency_ms": 17550,
+  "fallback_used": true,
+  "fallback_reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+  "verifier_triggered_fallback": true,
+  "response_final": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre o objeto Command na versão 1.2 do LangGraph em relação à 1.0.",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://docs.langchain.com/oss/javascript/releases/langgraph-v1",
+    "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+    "https://www.jbinternational.co.uk/article/view/4680",
+    "https://github.com/langchain-ai/langgraph/releases",
+    "https://docs.langchain.com/langsmith/changelog"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+      "output": [
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "latency_ms": 567
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+        "Qualquer mudança significativa no objeto Command na versão 1.2 do LangGraph em relação à 1.0?",
+        "O que foi adicionado ou modificado no objeto Command na transição da versão 1.0 para 1.2 do LangGraph?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/low_level_13",
+          "similarity": 0.8323,
+          "matched_by": "dense",
+          "title": "Graph API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/low_level.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_38",
+          "similarity": 0.8294,
+          "matched_by": "hybrid",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.8307,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_40",
+          "similarity": 0.8325,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_37",
+          "similarity": 0.8112,
+          "matched_by": "hybrid",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "agents/context_1",
+          "similarity": 0.8307,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_0",
+          "similarity": 0.8291,
+          "matched_by": "dense",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "how-tos/graph-api_36",
+          "similarity": 0.8231,
+          "matched_by": "hybrid",
+          "title": "How to use the graph API",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/how-tos/graph-api.md"
+        },
+        {
+          "chunk_id": "concepts/pregel_2",
+          "similarity": 0.8252,
+          "matched_by": "dense",
+          "title": "LangGraph runtime",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/pregel.md"
+        }
+      ],
+      "fallback_triggered": true,
+      "latency_ms": 53
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Resposta gerada a partir dos chunks recuperados não foi considerada fundamentada pelo verificador (caso 'de fronteira': similaridade passou do threshold, mas o conteúdo não sustenta a pergunta) — acionando busca web como fallback corretivo.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": true,
+      "query": "Na versão 1.2 do LangGraph, o objeto Command ganhou algum novo parâmetro ou comportamento em relação ao que existia na 1.0?",
+      "results": [
+        {
+          "title": "LangGraph 1.0 and 1.2 in 2026: Why Durable State Has Changed Everything for Python Agent Developers",
+          "url": "https://www.jbinternational.co.uk/article/view/4680",
+          "score": 0.5832
+        },
+        {
+          "title": "What's new in LangGraph v1",
+          "url": "https://docs.langchain.com/oss/javascript/releases/langgraph-v1",
+          "score": 0.3971
+        },
+        {
+          "title": "LangSmith Cloud changelog",
+          "url": "https://docs.langchain.com/langsmith/changelog",
+          "score": 0.3718
+        },
+        {
+          "title": "Releases · langchain-ai/langgraph",
+          "url": "https://github.com/langchain-ai/langgraph/releases",
+          "score": 0.2107
+        },
+        {
+          "title": "LangChain and LangGraph Agent Frameworks Reach v1.0 ...",
+          "url": "https://www.langchain.com/blog/langchain-langgraph-1dot0",
+          "score": 0.2029
+        }
+      ],
+      "latency_ms": 3145
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 154,
+      "latency_ms": 13785
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 0,
+      "initial_verdict": {
+        "response_draft": "Não encontrei informação suficiente no contexto disponível para responder com precisão sobre as mudanças específicas no objeto Command entre a versão 1.0 e a versão 1.2 do LangGraph.",
+        "grounded": false,
+        "warnings": [
+          "Resposta é uma recusa explícita — RAG não encontrou suporte suficiente."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "trace_id": "c43b6b1b-5ec1-43db-80d8-2cbfcca0c578",
+  "query_original": "Depois que um grafo do LangGraph é compilado com um checkpointer, como fica registrado o estado das execuções e o que é preciso informar para acessar esse histórico depois?",
+  "timestamp": "2026-07-16T16:07:13.837630+00:00",
+  "total_latency_ms": 11129,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "Depois que um grafo do LangGraph é compilado com um checkpointer, o estado das execuções é registrado em um \"thread\" com um ID único. Para acessar esse histórico, é necessário informar o ID do thread (`thread_id`) e o ID do checkpoint (`checkpoint_id`) ao invocar o grafo.\n\nO `thread_id` é um ID único atribuído a cada checkpoint salvo pelo checkpointer e contém o estado acumulado de uma sequência de execuções. O `checkpoint_id` é um identificador que se refere a um checkpoint específico dentro de um thread.\n\nPara acessar o histórico, é necessário passar esses IDs como parte da configuração (`configurable`) ao invocar o grafo:\n\n```python\nconfig = {\"configurable\": {\"thread_id\": \"1\", \"checkpoint_id\": \"0c62ca34-ac19-445d-bbb0-5b4984975b2a\"}}\ngraph.invoke(None, config=config)\n```\n\nIsso permite que o LangGraph reja o histórico das execuções e forneça acesso ao estado do grafo em diferentes momentos.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/functional_api",
+    "concepts/persistence"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Depois que um grafo do LangGraph é compilado com um checkpointer, como fica registrado o estado das execuções e o que é preciso informar para acessar esse histórico depois?",
+      "output": [
+        "Após a compilação de um grafo do LangGraph com um checkpointer, como é armazenado o registro das execuções e quais informações são necessárias para acessar esse histórico posteriormente?",
+        "Como o LangGraph registra o estado das execuções após a compilação com um checkpointer e quais dados são necessários para recuperar esse histórico de execuções?"
+      ],
+      "latency_ms": 781
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Depois que um grafo do LangGraph é compilado com um checkpointer, como fica registrado o estado das execuções e o que é preciso informar para acessar esse histórico depois?",
+        "Após a compilação de um grafo do LangGraph com um checkpointer, como é armazenado o registro das execuções e quais informações são necessárias para acessar esse histórico posteriormente?",
+        "Como o LangGraph registra o estado das execuções após a compilação com um checkpointer e quais dados são necessários para recuperar esse histórico de execuções?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/persistence_0",
+          "similarity": 0.8588,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8541,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_15",
+          "similarity": 0.8521,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_14",
+          "similarity": 0.8464,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_5",
+          "similarity": 0.8472,
+          "matched_by": "dense",
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8462,
+          "matched_by": "dense",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_8",
+          "similarity": 0.843,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_11",
+          "similarity": 0.8356,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 8630
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 8,
+      "output_length_chars": 1047,
+      "latency_ms": 1257
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 461,
+      "initial_verdict": null
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "trace_id": "1b472b01-79f2-4c81-9c8c-b7cea513e0c4",
+  "query_original": "Como funciona o checkpointing no LangGraph?",
+  "timestamp": "2026-07-16T16:04:46.833544+00:00",
+  "total_latency_ms": 22680,
+  "fallback_used": false,
+  "fallback_reason": null,
+  "verifier_triggered_fallback": false,
+  "response_final": "O checkpointing no LangGraph é implementado através de objetos de checkpointagem que conformam à interface @[BaseCheckpointSaver]. O LangGraph fornece várias implementações de checkpointagem, incluindo:\n\n- `langgraph-checkpoint`: A interface base para salvadores de checkpointagem (@[BaseCheckpointSaver]) e interface de serialização/deserialização (SerializerProtocol).\n- `langgraph-checkpoint-sqlite`: Uma implementação de checkpointagem do LangGraph que utiliza banco de dados SQLite (SqliteSaver / @[AsyncSqliteSaver]).\n- `langgraph-checkpoint-postgres`: Uma implementação avançada de checkpointagem que utiliza banco de dados Postgres (PostgresSaver / @[AsyncPostgresSaver]).\n\nO checkpointing é realizado automaticamente pelo LangGraph API, que manipula a infraestrutura de persistência por trás das cenas. Quando você compila um gráfico com um checkpointador, o checkpointador salva um `checkpoint` do estado do gráfico a cada super-passo. Esses checkpoints são salvos em um `thread`, que pode ser acessado após a execução do gráfico.\n\nPara persistir o estado, um thread deve ser criado antes de executar uma corrida. O estado atual e histórico de um thread podem ser recuperados.\n\n[Fonte: https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md]",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "concepts/persistence",
+    "concepts/memory",
+    "agents/context",
+    "concepts/durable_execution",
+    "concepts/functional_api"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Como funciona o checkpointing no LangGraph?",
+      "output": [
+        "Qual é o mecanismo de salvamento de estado implementado pelo LangGraph para garantir a consistência e a recuperação de sessões de processamento em caso de falhas?",
+        "Como o LangGraph utiliza a técnica de checkpointing para armazenar o estado atual dos agentes de IA e permitir a recuperação de sessões de processamento interrompidas?"
+      ],
+      "latency_ms": 6410
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Como funciona o checkpointing no LangGraph?",
+        "Qual é o mecanismo de salvamento de estado implementado pelo LangGraph para garantir a consistência e a recuperação de sessões de processamento em caso de falhas?",
+        "Como o LangGraph utiliza a técnica de checkpointing para armazenar o estado atual dos agentes de IA e permitir a recuperação de sessões de processamento interrompidas?"
+      ],
+      "chunks_retrieved": [
+        {
+          "chunk_id": "concepts/persistence_0",
+          "similarity": 0.8725,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_14",
+          "similarity": 0.865,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_6",
+          "similarity": 0.8597,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_17",
+          "similarity": 0.8594,
+          "matched_by": "hybrid",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "agents/context_0",
+          "similarity": 0.84,
+          "matched_by": "dense",
+          "title": "Context",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/agents/context.md"
+        },
+        {
+          "chunk_id": "concepts/functional_api_11",
+          "similarity": 0.8523,
+          "matched_by": "hybrid",
+          "title": "Functional API concepts",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/functional_api.md"
+        },
+        {
+          "chunk_id": "concepts/memory_0",
+          "similarity": 0.8506,
+          "matched_by": "hybrid",
+          "title": "Memory",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/memory.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_1",
+          "similarity": 0.8619,
+          "matched_by": "dense",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/persistence_15",
+          "similarity": 0.8604,
+          "matched_by": "dense",
+          "title": "Persistence",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/persistence.md"
+        },
+        {
+          "chunk_id": "concepts/durable_execution_0",
+          "similarity": 0.8366,
+          "matched_by": "dense",
+          "title": "Durable Execution",
+          "source_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/c4144bb48f97e6afeaa002de318580cc41c19893/docs/docs/concepts/durable_execution.md"
+        }
+      ],
+      "fallback_triggered": false,
+      "latency_ms": 13911
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": false,
+      "reason": null,
+      "latency_ms": 0
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 10,
+      "output_length_chars": 1328,
+      "latency_ms": 1483
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 876,
+      "initial_verdict": null
+    }
+  ]
+}

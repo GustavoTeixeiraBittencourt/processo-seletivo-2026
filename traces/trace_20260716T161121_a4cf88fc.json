@@ -1,0 +1,93 @@
+{
+  "trace_id": "a4cf88fc-85b3-49b5-b931-fcf43d7b587f",
+  "query_original": "Qual é a capital da França?",
+  "timestamp": "2026-07-16T16:10:49.587779+00:00",
+  "total_latency_ms": 32076,
+  "fallback_used": true,
+  "fallback_reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+  "verifier_triggered_fallback": false,
+  "response_final": "A capital da França é Paris.\n\nFonte: Vários trechos (Paris – Wikipédia, a enciclopédia livre, Paris — Google Arts & Culture, Você conhece Paris? Neste vídeo em 3D, exploramos a capital da ..., Paris, etc.)",
+  "grounded": true,
+  "grounding_warnings": [],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Paris",
+    "https://www.facebook.com/globoviajante3d/videos/voc%C3%AA-conhece-parisneste-v%C3%ADdeo-em-3d-exploramos-a-capital-da-fran%C3%A7a-a-partir-de-s/861858550072766",
+    "https://pt.wikipedia.org/wiki/Paris",
+    "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+    "https://artsandculture.google.com/entity/m05qtj?hl=pt"
+  ],
+  "steps": [
+    {
+      "agent": "reformulator",
+      "input": "Qual é a capital da França?",
+      "output": [
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "latency_ms": 1645
+    },
+    {
+      "agent": "retriever",
+      "queries_used": [
+        "Qual é a capital da França?",
+        "Qual é a cidade sede do governo francês?",
+        "Qual é a localização principal da República Francesa?"
+      ],
+      "chunks_retrieved": [],
+      "fallback_triggered": true,
+      "latency_ms": 50
+    },
+    {
+      "agent": "fallback_decision",
+      "triggered": true,
+      "reason": "Nenhum chunk recuperado acima do threshold de similaridade (threshold=0.78). O corpus (LangGraph v1.0.0) provavelmente não contém informação sobre esta pergunta.",
+      "latency_ms": 0
+    },
+    {
+      "agent": "web_search",
+      "corrective": false,
+      "query": "Qual é a capital da França?",
+      "results": [
+        {
+          "title": "Paris – Wikipédia, a enciclopédia livre",
+          "url": "https://pt.wikipedia.org/wiki/Paris",
+          "score": 0.8771
+        },
+        {
+          "title": "Paris — Google Arts & Culture",
+          "url": "https://artsandculture.google.com/entity/m05qtj?hl=pt",
+          "score": 0.8562
+        },
+        {
+          "title": "Você conhece Paris? Neste vídeo em 3D, exploramos a capital da ...",
+          "url": "https://www.facebook.com/globoviajante3d/videos/voc%C3%AA-conhece-parisneste-v%C3%ADdeo-em-3d-exploramos-a-capital-da-fran%C3%A7a-a-partir-de-s/861858550072766",
+          "score": 0.8434
+        },
+        {
+          "title": "Instagram",
+          "url": "https://www.instagram.com/reel/DOZcmT4EaTk?hl=en",
+          "score": 0.8345
+        },
+        {
+          "title": "Paris",
+          "url": "https://en.wikipedia.org/wiki/Paris",
+          "score": 0.7968
+        }
+      ],
+      "latency_ms": 1950
+    },
+    {
+      "agent": "generator",
+      "context_chunks_count": 5,
+      "output_length_chars": 205,
+      "latency_ms": 14779
+    },
+    {
+      "agent": "verifier",
+      "grounded": true,
+      "warnings": [],
+      "latency_ms": 13652,
+      "initial_verdict": null
+    }
+  ]
+}
