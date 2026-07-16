@@ -52,7 +52,7 @@ Fluxo (grafo LangGraph, `src/orchestration/graph.py`):
 `reformulator → retriever → fallback_decision → [web_search | generator] → generator → verifier → [web_search (retry corretivo, máx. 1×) | END]`
 
 1. **`reformulator`** — gera 2 reformulações da pergunta original via LLM (multi-query, aumenta recall).
-2. **`retriever`** — busca no ChromaDB para a pergunta original + reformulações, funde os resultados por `chunk_id`.
+2. **`retriever`** — busca densa no ChromaDB para a pergunta original + reformulações, re-ranqueia os candidatos com BM25 via Reciprocal Rank Fusion, e funde os resultados por `chunk_id` (o threshold de similaridade denso continua sendo o único gate — o BM25 só reordena candidatos já qualificados).
 3. **`fallback_decision`** — determinístico, sem LLM: aciona busca web se nenhum chunk fundido superar o threshold de similaridade (0.78).
 4. **`web_search`** — busca na Tavily, usada tanto no fallback inicial quanto no retry corretivo.
 5. **`generator`** — gera a resposta citando as fontes, com truncamento de contexto (1500 chars/chunk, 6000 chars total).
@@ -70,7 +70,7 @@ Cada execução gera um trace JSON completo em `traces/` (schema documentado em 
 - **Threshold de similaridade calibrado em 0.78** (`src/retrieval/_manual_check.py`), separando perguntas fora do domínio (~0.70) de perguntas do corpus (~0.82–0.87). Não separa perguntas "dentro do domínio mas fora da janela de tempo" (~0.81–0.84) — por isso o `verifier` existe como segunda linha de defesa, depois da geração.
 - **Chunking:** 400 tokens por chunk, 40 de overlap, tokenizado com `tiktoken cl100k_base` como proxy do tokenizer do E5 — deixa margem sob o limite de 512 tokens do modelo de embeddings, evitando truncamento silencioso.
 - **Prefixos E5 (`"query: "` / `"passage: "`)** aplicados em toda chamada ao modelo de embeddings — omiti-los não gera erro, apenas degrada a qualidade da recuperação silenciosamente.
-- **Busca híbrida (BM25 + Reciprocal Rank Fusion)** está implementada em `src/retrieval/hybrid.py` mas **não integrada** ao pipeline — foi deliberadamente adiada até a calibração da recuperação densa (E5) estar concluída.
+- **Busca híbrida (BM25 + Reciprocal Rank Fusion)** integrada em `src/agents/retriever.py` (`src/retrieval/hybrid.py`) — adiada deliberadamente até a calibração da recuperação densa (E5) estar concluída, e integrada só depois. O threshold de similaridade denso continua sendo o único gate de fallback: o BM25 nunca admite um chunk que a busca densa rejeitou, só reordena/reforça os candidatos que já passaram no threshold (cobre perguntas com termos exatos — nomes de função/classe — que o embedding às vezes rankeia mais abaixo do que deveria). Cada chunk no trace traz `matched_by: "hybrid"` ou `"dense"`. Justificativa completa em `docs/decisoes_tecnicas.md`.
 
 ---
 
@@ -79,7 +79,7 @@ Cada execução gera um trace JSON completo em `traces/` (schema documentado em 
 | Agente | Papel |
 |---|---|
 | `reformulator` | Gera reformulações da pergunta para melhorar o recall da busca |
-| `retriever` | Busca no ChromaDB e funde resultados de múltiplas queries |
+| `retriever` | Busca no ChromaDB (denso) para múltiplas queries, re-ranqueia com BM25 via RRF e funde os resultados |
 | `fallback_decision` | Decide, de forma determinística, se a busca web precisa ser acionada |
 | `web_search` | Busca na web via Tavily (fallback inicial ou retry corretivo) |
 | `generator` | Gera a resposta final citando as fontes usadas |

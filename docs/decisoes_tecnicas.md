@@ -43,3 +43,53 @@ decisão independente e mantida sem alteração.
 desenvolvimento, motivado pela leitura literal do guia de execução. Essa
 troca foi revertida — a entrada aqui documenta a decisão final para não
 haver ambiguidade em revisões futuras do código ou na entrevista.
+
+## Recuperação híbrida (BM25 + RRF): threshold denso continua sendo o único gate
+
+**Decisão final:** `src/agents/retriever.py` combina busca densa (E5) com
+BM25 via Reciprocal Rank Fusion (`src/retrieval/hybrid.py`), mas o BM25
+**nunca admite um chunk que não tenha passado no threshold de similaridade
+denso** (`MIN_SIMILARITY_DEFAULT = 0.78`, `src/retrieval/retriever.py`). O
+BM25 só reordena/reforça os candidatos que a busca densa já qualificou para
+cada query (original + reformulações).
+
+**Contexto:** `src/retrieval/hybrid.py` (`build_bm25`,
+`reciprocal_rank_fusion`) já existia desde a fase de calibração da busca
+densa, mas ficou deliberadamente não integrado até essa calibração estar
+concluída — ver a entrada de threshold abaixo e `README.md`. Com o threshold
+0.78 já validado contra o benchmark (100% de acurácia na decisão de
+fallback), era hora de integrar.
+
+**Por que o threshold denso continua sendo o gate, em vez de deixar o BM25
+também admitir candidatos:**
+- O threshold 0.78 foi calibrado especificamente para separar perguntas
+  fora do domínio (`~0.70`) de perguntas do corpus (`~0.82-0.87`) — é o que
+  sustenta os 100% de acurácia de fallback no benchmark. Deixar o BM25
+  admitir chunks que a busca densa rejeitou reabriria essa calibração sem
+  nova evidência: uma pergunta fora do domínio pode ter sobreposição lexical
+  incidental com o corpus (uma palavra comum) sem ter, de fato, resposta
+  nele — isso quebraria a garantia de fallback, não a melhoraria.
+- O ganho esperado do BM25 aqui é outro: perguntas com termos exatos (nomes
+  de função/classe, ex. `add_conditional_edges`, `interrupt()`) que o
+  embedding denso às vezes rankeia mais abaixo do que deveria, mas que ainda
+  assim aparecem no top-`_DENSE_CANDIDATES_PER_QUERY` (10) da busca densa —
+  o BM25 empurra esses chunks para cima na fusão final. Isso é reordenação
+  de precisão dentro do conjunto já aprovado, não expansão de recall além
+  do threshold.
+
+**Design da fusão:** para cada query (original + reformulações), busca-se
+até 10 candidatos densos (acima do threshold) e até 10 candidatos BM25;
+os dois rankings são fundidos por RRF (`reciprocal_rank_fusion`). Os
+rankings fundidos de cada query são então combinados entre si por uma
+segunda rodada de RRF (mesma fórmula, agora entre queries). Um filtro final
+garante que só chunk_ids presentes no conjunto denso-qualificado (de
+qualquer uma das queries) sobrevivem — o BM25 nunca introduz um chunk novo
+sozinho. Cada chunk retornado carrega `matched_by: "hybrid"` (também achado
+pelo BM25) ou `"dense"` (só a busca densa), visível no trace
+(`docs/trace_schema.md`) para auditoria.
+
+**Trade-off aceito:** o índice BM25 é reconstruído em memória por processo
+(memoizado com `lru_cache`, mesmo padrão do modelo de embeddings) a partir
+de todos os chunks do Chroma — custo aceitável no tamanho atual do corpus
+(183 chunks), mas não escalaria sem paginação para um corpus ordens de
+grandeza maior.

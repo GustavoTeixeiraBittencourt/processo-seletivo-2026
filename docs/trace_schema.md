@@ -38,12 +38,13 @@ Este documento é a referência canônica — implementação em `src/observabil
   "agent": "retriever",
   "queries_used": ["original", "reform1", "reform2"],
   "chunks_retrieved": [
-    {"chunk_id": "concepts/persistence_3", "similarity": 0.872, "title": "Persistence", "source_url": "https://..."}
+    {"chunk_id": "concepts/persistence_3", "similarity": 0.872, "matched_by": "hybrid", "title": "Persistence", "source_url": "https://..."}
   ],
   "fallback_triggered": false,
   "latency_ms": 210
 }
 ```
+`similarity` é sempre a similaridade de cosseno da busca densa (o gate usado por `fallback_decision`), independente de `matched_by`. `matched_by` indica se o chunk também foi ranqueado pelo BM25 (`"hybrid"`) ou só apareceu na busca densa (`"dense"`) — ver `src/agents/retriever.py` e `src/retrieval/hybrid.py`: o BM25 nunca admite um chunk que não tenha passado no threshold denso, só reordena os que já passaram.
 
 ### `fallback_decision`
 ```json
