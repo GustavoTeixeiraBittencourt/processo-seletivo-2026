@@ -1,0 +1,39 @@
+# Ambiente virtual e cache Python
+venv/
+.venv/
+env/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Git
+.git/
+
+# Secrets e configuração local
+.env
+*.key
+
+# IDE e OS
+.DS_Store
+.vscode/
+.idea/
+
+# Dados de runtime — montados como volumes pelo docker-compose.
+# Excluir do contexto de build evita copiar o chroma.sqlite3 (potencialmente
+# grande) e os traces acumulados para dentro da imagem.
+data/
+traces/
+
+# Arquivos de desenvolvimento não necessários em runtime
+dev/
+dados/
+diagram/
+
+# Markdown de raiz (documentação de processo — não usados pela aplicação)
+GUIA_PESSOA_B.md
+contexto-claude-ai.md
+guia-execucao-lapes-2026.md
+prompt.md
+relatorio_*.md
