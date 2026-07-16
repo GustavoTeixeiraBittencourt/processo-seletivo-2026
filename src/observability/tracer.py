@@ -59,6 +59,7 @@ def build_trace(state: dict, started_at: datetime) -> dict:
                         f"{c['metadata']['doc_id']}_{c['metadata']['chunk_index']}"
                     ),
                     "similarity": round(c.get("similarity", 0), 4),
+                    "matched_by": c.get("matched_by", "dense"),
                     "title": c["metadata"].get("title", ""),
                     "source_url": c["metadata"].get("source_url", ""),
                 }
